@@ -95,6 +95,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
+      { name: "twitter:title", content: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
+      { name: "description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
+      { property: "og:description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
+      { name: "twitter:description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1" },
     ],
     links: [
       {
