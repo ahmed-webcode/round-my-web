@@ -1,24 +1,63 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ParticleField } from "@/components/portfolio/ParticleField";
+import { Nav } from "@/components/portfolio/Nav";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { TechCube } from "@/components/portfolio/TechCube";
+import { Banner, Experience } from "@/components/portfolio/Experience";
+import { Projects } from "@/components/portfolio/Projects";
+import { Skills } from "@/components/portfolio/Skills";
+import { Education } from "@/components/portfolio/Education";
+import { Contact, Footer } from "@/components/portfolio/Contact";
+import { useScrollReveal } from "@/components/portfolio/hooks";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      {
+        title: "Ahmed Muhammed Seid | Software Developer & Project Manager",
+      },
+      {
+        name: "description",
+        content:
+          "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration.",
+      },
+      {
+        property: "og:title",
+        content: "Ahmed Muhammed Seid | Software Developer & Project Manager",
+      },
+      {
+        property: "og:description",
+        content:
+          "Software Developer & Project Manager. Python, Django, DevOps, trilingual (English, Arabic, Amharic).",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useScrollReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative">
+      <ParticleField />
+      <div className="relative z-10">
+        <Nav />
+        <main>
+          <Hero />
+          <About />
+          <TechCube />
+          <Banner />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

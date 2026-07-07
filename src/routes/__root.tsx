@@ -77,14 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager specializing in Python, Django, and DevOps, with fluency in English, Arabic, and Amharic.",
+      },
+      { name: "author", content: "Ahmed Muhammed Seid" },
+      {
+        property: "og:title",
+        content: "Ahmed Muhammed Seid | Software Developer & Project Manager",
+      },
+      {
+        property: "og:description",
+        content:
+          "Software Developer & Project Manager. Python, Django, DevOps, trilingual.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
