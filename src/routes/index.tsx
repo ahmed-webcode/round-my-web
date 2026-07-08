@@ -40,7 +40,15 @@ export const Route = createFileRoute("/")({
           "Software Developer & Project Manager. Python, Django, DevOps, trilingual (English, Arabic, Amharic).",
       },
     ],
-    links: [{ rel: "canonical", href: "https://ahmedms.lovable.app/" }],
+    links: [
+      { rel: "canonical", href: "https://ahmedms.lovable.app/" },
+      {
+        rel: "preload",
+        as: "image",
+        href: ahmedAsset.url,
+        fetchPriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
