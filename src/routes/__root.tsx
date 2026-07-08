@@ -84,24 +84,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager skilled in Python, Django, and DevOps, and fluent in English, Arabic, and Amharic.",
       },
       { name: "author", content: "Ahmed Muhammed Seid" },
-      {
-        property: "og:title",
-        content: "Ahmed Muhammed Seid | Software Developer & Project Manager",
-      },
-      {
-        property: "og:description",
-        content:
-          "Software Developer & Project Manager. Python, Django, DevOps, trilingual.",
-      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Ahmed Muhammed Seid" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
-      { name: "twitter:title", content: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
-      { name: "description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
-      { property: "og:description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
-      { name: "twitter:description", content: "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Ahmed Muhammed Seid",
+          url: "https://ahmedms.lovable.app/",
+          description:
+            "Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager.",
+        }),
+      },
     ],
     links: [
       {
