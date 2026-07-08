@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
 import { ParticleField } from "@/components/portfolio/ParticleField";
 import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
@@ -39,7 +40,15 @@ export const Route = createFileRoute("/")({
           "Software Developer & Project Manager. Python, Django, DevOps, trilingual (English, Arabic, Amharic).",
       },
     ],
-    links: [{ rel: "canonical", href: "https://ahmedms.lovable.app/" }],
+    links: [
+      { rel: "canonical", href: "https://ahmedms.lovable.app/" },
+      {
+        rel: "preload",
+        as: "image",
+        href: ahmedAsset.url,
+        fetchpriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",

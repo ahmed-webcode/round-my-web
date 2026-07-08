@@ -78,11 +78,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
-      {
-        name: "description",
-        content:
-          "Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager skilled in Python, Django, and DevOps, and fluent in English, Arabic, and Amharic.",
-      },
       { name: "author", content: "Ahmed Muhammed Seid" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Ahmed Muhammed Seid" },
