@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
 import { ParticleField } from "@/components/portfolio/ParticleField";
 import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
