@@ -15,24 +15,51 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Ahmed Muhammed Seid | Software Developer & Project Manager",
-      },
-      {
         name: "description",
         content:
-          "Ahmed Muhammed Seid — Software Developer and Project Manager with dual degrees in Software Engineering and Arabic Language. Python, Django, DevOps, and cross-cultural collaboration.",
+          "Ahmed Muhammed Seid — Software Developer & Project Manager. Python, Django, DevOps, and trilingual collaboration in English, Arabic, and Amharic.",
       },
       {
         property: "og:title",
-        content: "Ahmed Muhammed Seid | Software Developer & Project Manager",
+        content: "Ahmed Muhammed Seid — Software Developer & Project Manager",
       },
       {
         property: "og:description",
         content:
           "Software Developer & Project Manager. Python, Django, DevOps, trilingual (English, Arabic, Amharic).",
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://ahmedms.lovable.app/" },
+      {
+        name: "twitter:title",
+        content: "Ahmed Muhammed Seid — Software Developer & Project Manager",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Software Developer & Project Manager. Python, Django, DevOps, trilingual (English, Arabic, Amharic).",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://ahmedms.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Ahmed Muhammed Seid",
+          jobTitle: "Software Developer & Project Manager",
+          url: "https://ahmedms.lovable.app/",
+          email: "mailto:ahmedmuh543@gmail.com",
+          telephone: "+251920928989",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Addis Ababa",
+            addressCountry: "Ethiopia",
+          },
+          knowsLanguage: ["English", "Arabic", "Amharic"],
+          knowsAbout: ["Python", "Django", "DevOps", "Project Management"],
+        }),
+      },
     ],
   }),
   component: Index,
