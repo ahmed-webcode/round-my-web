@@ -79,6 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
       { name: "author", content: "Ahmed Muhammed Seid" },
+      {
+        name: "google-site-verification",
+        content: "Bc3GxKJA3IvtImcSsUz7n3fzDRqjSMXjQ0ywnJQTXIs",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Ahmed Muhammed Seid" },
       { name: "twitter:card", content: "summary_large_image" },
