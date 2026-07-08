@@ -35,6 +35,8 @@ export function Hero() {
                 alt="Ahmed Muhammed Seid"
                 width={168}
                 height={168}
+                fetchPriority="high"
+                decoding="async"
                 className="h-36 w-36 rounded-full object-cover object-top shadow-[var(--shadow-glow)] sm:h-44 sm:w-44"
               />
             </div>
