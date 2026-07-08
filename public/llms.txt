@@ -1,0 +1,7 @@
+# Ahmed Muhammed Seid
+
+> Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager skilled in Python, Django, and DevOps, and fluent in English, Arabic, and Amharic.
+
+## Pages
+
+- [Home](/): Overview, experience, projects, skills, education, and contact details.
