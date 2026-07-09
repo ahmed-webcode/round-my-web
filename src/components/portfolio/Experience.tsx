@@ -8,7 +8,7 @@ export function Banner() {
       <div className="anim-blob pointer-events-none absolute right-[15%] top-[35%] h-56 w-56 rounded-full bg-accent/25 blur-[70px] [animation-delay:3s]" />
       <div className="relative z-10 px-5 text-center">
         <h2 className="gradient-text mb-3 text-3xl font-extrabold sm:text-5xl">
-          Building the Future
+          Engineering Philosophy
         </h2>
         <p className="mx-auto max-w-xl text-base text-muted-foreground sm:text-lg">
           Every line of code is a step toward innovation. I turn complex problems

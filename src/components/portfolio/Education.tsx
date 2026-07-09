@@ -83,7 +83,7 @@ export function Education() {
                     {l.glyph}
                   </span>
                 </div>
-                <h4 className="text-lg font-semibold">{l.name}</h4>
+                <h3 className="text-lg font-semibold">{l.name}</h3>
                 <p className="mx-auto mt-1 max-w-[12rem] text-sm text-muted-foreground">
                   {l.level}
                 </p>
