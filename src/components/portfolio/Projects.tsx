@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Truck, GraduationCap, Users } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import kheyrukumAsset from "@/assets/kheyrukum.png.asset.json";
+import kheyrukumPortalAsset from "@/assets/kheyrukum-portal.png.asset.json";
 
 const PROJECTS = [
   {
     icon: Truck,
+    image: null as string | null,
     gradient: "var(--gradient-primary)",
     tags: ["React", "Node.js", "MySQL", "PM"],
     title: "Fleet Management System",
@@ -12,15 +15,17 @@ const PROJECTS = [
     link: null,
   },
   {
-    icon: GraduationCap,
+    icon: null,
+    image: kheyrukumAsset.url,
     gradient: "linear-gradient(135deg, oklch(0.45 0.15 300), oklch(0.4 0.12 265))",
-    tags: ["Full-Stack", "Web App", "Education"],
+    tags: ["Web", "Design", "Branding"],
     title: "Kheyrukum",
-    desc: "Built kheyrukum.com — a modern education platform crafted end-to-end. Designed the architecture, developed the frontend and backend, and shipped a polished, production-ready experience.",
+    desc: "Designed and built kheyrukum.com — a website to show the world that we exist. A polished digital presence that tells the story of Kheyrukum and puts it on the map.",
     link: "https://kheyrukum.com",
   },
   {
-    icon: Users,
+    icon: null,
+    image: kheyrukumPortalAsset.url,
     gradient: "linear-gradient(135deg, oklch(0.4 0.12 265), oklch(0.65 0.2 12))",
     tags: ["Portal", "Education", "Real-time"],
     title: "Kheyrukum Portal",
@@ -53,10 +58,19 @@ export function Projects() {
                 <div key={p.title} className="w-full shrink-0">
                   <div className="grid overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-2">
                     <div
-                      className="grid min-h-[200px] place-items-center p-10"
+                      className="grid min-h-[200px] place-items-center overflow-hidden p-0"
                       style={{ background: p.gradient }}
                     >
-                      <Icon size={80} className="anim-float text-white" />
+                      {p.image ? (
+                        <img
+                          src={p.image}
+                          alt={`${p.title} preview`}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : Icon ? (
+                        <Icon size={80} className="anim-float text-white" />
+                      ) : null}
                     </div>
                     <div className="flex flex-col justify-center p-8">
                       <div className="mb-3 flex flex-wrap gap-2">
