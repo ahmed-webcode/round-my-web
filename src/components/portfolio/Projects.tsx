@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Truck, Code, Bot } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Truck, GraduationCap, Users } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
-import { GithubIcon } from "./BrandIcons";
 
 const PROJECTS = [
   {
@@ -10,20 +9,23 @@ const PROJECTS = [
     tags: ["React", "Node.js", "MySQL", "PM"],
     title: "Fleet Management System",
     desc: "A complete digital transformation of AAU's transport division. Automated vehicle tracking, maintenance alerts, fuel optimization, and data-driven reporting. Delivered on time and within budget.",
+    link: null,
   },
   {
-    icon: Code,
+    icon: GraduationCap,
     gradient: "linear-gradient(135deg, oklch(0.45 0.15 300), oklch(0.4 0.12 265))",
-    tags: ["Python", "API", "REST", "Backend"],
-    title: "API Development Suite",
-    desc: "Built scalable REST APIs handling 500+ daily requests with Django REST Framework. Implemented authentication, rate limiting, and comprehensive API documentation.",
+    tags: ["Full-Stack", "Web App", "Education"],
+    title: "Kheyrukum",
+    desc: "Built kheyrukum.com — a modern education platform crafted end-to-end. Designed the architecture, developed the frontend and backend, and shipped a polished, production-ready experience.",
+    link: "https://kheyrukum.com",
   },
   {
-    icon: Bot,
+    icon: Users,
     gradient: "linear-gradient(135deg, oklch(0.4 0.12 265), oklch(0.65 0.2 12))",
-    tags: ["ML", "Python", "Data", "AI"],
-    title: "ML Classification Model",
-    desc: "Supervised machine learning project implementing regression and classification algorithms. Trained on real datasets with feature engineering and model optimization.",
+    tags: ["Portal", "Education", "Real-time"],
+    title: "Kheyrukum Portal",
+    desc: "Built kheyrukumportal.vercel.app — a portal where teachers and parents meet to track students' learning patterns, progress, and daily behavior in a single collaborative dashboard.",
+    link: "https://kheyrukumportal.vercel.app",
   },
 ];
 
@@ -71,20 +73,18 @@ export function Projects() {
                       <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                         {p.desc}
                       </p>
-                      <div className="flex flex-wrap gap-3">
-                        <a
-                          href="#"
-                          className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-light px-4 py-2 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                        >
-                          <GithubIcon size={16} /> View Code
-                        </a>
-                        <a
-                          href="#"
-                          className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-light px-4 py-2 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                        >
-                          <ExternalLink size={16} /> Live Demo
-                        </a>
-                      </div>
+                      {p.link && (
+                        <div className="flex flex-wrap gap-3">
+                          <a
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-light px-4 py-2 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                          >
+                            <ExternalLink size={16} /> Visit Site
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
