@@ -58,10 +58,19 @@ export function Projects() {
                 <div key={p.title} className="w-full shrink-0">
                   <div className="grid overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-2">
                     <div
-                      className="grid min-h-[200px] place-items-center p-10"
+                      className="grid min-h-[200px] place-items-center overflow-hidden p-0"
                       style={{ background: p.gradient }}
                     >
-                      <Icon size={80} className="anim-float text-white" />
+                      {p.image ? (
+                        <img
+                          src={p.image}
+                          alt={`${p.title} preview`}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : Icon ? (
+                        <Icon size={80} className="anim-float text-white" />
+                      ) : null}
                     </div>
                     <div className="flex flex-col justify-center p-8">
                       <div className="mb-3 flex flex-wrap gap-2">
