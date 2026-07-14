@@ -15,7 +15,7 @@ const SOCIALS = [
   {
     icon: TelegramIcon,
     label: "Telegram",
-    href: "https://t.me/Amsa899",
+    href: "https://telegram.me/Amsa899",
   },
 ];
 
@@ -53,7 +53,7 @@ export function Contact() {
             +251 920 928 989
           </a>
           <a
-            href="https://t.me/Amsa899"
+            href="https://telegram.me/Amsa899"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-3 rounded-xl border border-border bg-card px-6 py-4 font-medium transition-all hover:-translate-y-1 hover:border-transparent hover:bg-gradient-primary hover:text-primary-foreground"

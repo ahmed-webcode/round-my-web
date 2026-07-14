@@ -101,7 +101,7 @@ export const Route = createFileRoute("/")({
           sameAs: [
             "https://github.com/ahmed-webcode",
             "https://www.linkedin.com/in/ahmed-muhammed-seid-983138309",
-            "https://t.me/Amsa899",
+            "https://telegram.me/Amsa899",
           ],
         }),
 
