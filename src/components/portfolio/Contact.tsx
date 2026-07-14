@@ -1,11 +1,22 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TelegramIcon, XIcon } from "./BrandIcons";
+import { GithubIcon, LinkedinIcon, TelegramIcon } from "./BrandIcons";
 
 const SOCIALS = [
-  { icon: GithubIcon, label: "GitHub", href: "#" },
-  { icon: LinkedinIcon, label: "LinkedIn", href: "#" },
-  { icon: XIcon, label: "X", href: "#" },
-  { icon: TelegramIcon, label: "Telegram", href: "#" },
+  {
+    icon: GithubIcon,
+    label: "GitHub",
+    href: "https://github.com/ahmed-webcode",
+  },
+  {
+    icon: LinkedinIcon,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ahmed-muhammed-seid-983138309",
+  },
+  {
+    icon: TelegramIcon,
+    label: "Telegram",
+    href: "https://t.me/Amsa899",
+  },
 ];
 
 export function Contact() {
@@ -41,6 +52,15 @@ export function Contact() {
             <Phone size={20} className="text-primary group-hover:text-white" />
             +251 920 928 989
           </a>
+          <a
+            href="https://t.me/Amsa899"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center gap-3 rounded-xl border border-border bg-card px-6 py-4 font-medium transition-all hover:-translate-y-1 hover:border-transparent hover:bg-gradient-primary hover:text-primary-foreground"
+          >
+            <TelegramIcon size={20} className="text-primary group-hover:text-white" />
+            @Amsa899
+          </a>
           <span className="inline-flex items-center justify-center gap-3 rounded-xl border border-border bg-card px-6 py-4 font-medium">
             <MapPin size={20} className="text-primary" />
             Addis Ababa, Ethiopia
@@ -52,6 +72,8 @@ export function Contact() {
             <a
               key={label}
               href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               title={label}
               aria-label={label}
               className="grid h-12 w-12 place-items-center rounded-xl border border-border bg-card text-muted-foreground transition-all hover:-translate-y-1 hover:border-transparent hover:bg-gradient-primary hover:text-white"
@@ -68,10 +90,7 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background py-8 text-center">
-      <p className="text-sm text-dim">
-        © 2026 Ahmed Muhammed Seid. Built with{" "}
-        <span className="anim-heartbeat text-primary">♥</span> and code.
-      </p>
+      <p className="text-sm text-dim">© 2026 Ahmed Muhammed Seid</p>
     </footer>
   );
 }
