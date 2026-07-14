@@ -10,6 +10,7 @@ import { Projects } from "@/components/portfolio/Projects";
 import { Skills } from "@/components/portfolio/Skills";
 import { Education } from "@/components/portfolio/Education";
 import { Contact, Footer } from "@/components/portfolio/Contact";
+import { Chatbot } from "@/components/portfolio/Chatbot";
 import { useScrollReveal } from "@/components/portfolio/hooks";
 
 export const Route = createFileRoute("/")({
@@ -131,6 +132,7 @@ function Index() {
         </main>
         <Footer />
       </div>
+      <Chatbot />
     </div>
   );
 }
