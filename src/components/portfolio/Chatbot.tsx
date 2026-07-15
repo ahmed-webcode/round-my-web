@@ -1,7 +1,21 @@
 import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
-import { MessageCircle, Send, X } from "lucide-react";
+import { DefaultChatTransport, type UIMessage } from "ai";
+import { MessageCircle, Send, Trash2, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+
+const STORAGE_KEY = "ahmedbot:messages:v1";
+
+function loadStoredMessages(): UIMessage[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as UIMessage[]) : [];
+  } catch {
+    return [];
+  }
+}
 
 const SUGGESTIONS = [
   "What are Ahmed's top skills?",
@@ -13,7 +27,11 @@ const SUGGESTIONS = [
 export function Chatbot() {
   const [open, setOpen] = useState(false);
   const transport = useMemo(() => new DefaultChatTransport({ api: "/api/chat" }), []);
-  const { messages, sendMessage, status } = useChat({ transport });
+  const initialMessages = useMemo(() => loadStoredMessages(), []);
+  const { messages, sendMessage, status, setMessages } = useChat({
+    transport,
+    messages: initialMessages,
+  });
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,6 +45,30 @@ export function Chatbot() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, status]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || status === "streaming" || status === "submitted") return;
+    try {
+      if (messages.length === 0) {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } else {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      }
+    } catch {
+      // ignore quota/serialization errors
+    }
+  }, [messages, status]);
+
+  const clearHistory = () => {
+    setMessages([]);
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   const submit = (text: string) => {
     const trimmed = text.trim();
@@ -52,10 +94,20 @@ export function Chatbot() {
             <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary text-sm font-bold text-white">
               A
             </div>
-            <div>
+            <div className="flex-1">
               <p className="text-sm font-semibold">Ahmed's AI</p>
               <p className="text-xs text-muted-foreground">Ask about my skills & work</p>
             </div>
+            {messages.length > 0 && (
+              <button
+                type="button"
+                onClick={clearHistory}
+                aria-label="Clear chat history"
+                className="grid h-8 w-8 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+              >
+                <Trash2 size={15} />
+              </button>
+            )}
           </div>
 
           <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4">
