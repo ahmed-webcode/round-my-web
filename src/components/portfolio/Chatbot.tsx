@@ -46,6 +46,30 @@ export function Chatbot() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, status]);
 
+  useEffect(() => {
+    if (typeof window === "undefined" || status === "streaming" || status === "submitted") return;
+    try {
+      if (messages.length === 0) {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } else {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      }
+    } catch {
+      // ignore quota/serialization errors
+    }
+  }, [messages, status]);
+
+  const clearHistory = () => {
+    setMessages([]);
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // ignore
+      }
+    }
+  };
+
   const submit = (text: string) => {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
