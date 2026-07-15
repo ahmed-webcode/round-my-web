@@ -94,10 +94,20 @@ export function Chatbot() {
             <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary text-sm font-bold text-white">
               A
             </div>
-            <div>
+            <div className="flex-1">
               <p className="text-sm font-semibold">Ahmed's AI</p>
               <p className="text-xs text-muted-foreground">Ask about my skills & work</p>
             </div>
+            {messages.length > 0 && (
+              <button
+                type="button"
+                onClick={clearHistory}
+                aria-label="Clear chat history"
+                className="grid h-8 w-8 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+              >
+                <Trash2 size={15} />
+              </button>
+            )}
           </div>
 
           <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4">
