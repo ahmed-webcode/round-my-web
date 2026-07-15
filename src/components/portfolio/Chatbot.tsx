@@ -1,7 +1,21 @@
 import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
-import { MessageCircle, Send, X } from "lucide-react";
+import { DefaultChatTransport, type UIMessage } from "ai";
+import { MessageCircle, Send, Trash2, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+
+const STORAGE_KEY = "ahmedbot:messages:v1";
+
+function loadStoredMessages(): UIMessage[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as UIMessage[]) : [];
+  } catch {
+    return [];
+  }
+}
 
 const SUGGESTIONS = [
   "What are Ahmed's top skills?",
