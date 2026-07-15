@@ -27,7 +27,11 @@ const SUGGESTIONS = [
 export function Chatbot() {
   const [open, setOpen] = useState(false);
   const transport = useMemo(() => new DefaultChatTransport({ api: "/api/chat" }), []);
-  const { messages, sendMessage, status } = useChat({ transport });
+  const initialMessages = useMemo(() => loadStoredMessages(), []);
+  const { messages, sendMessage, status, setMessages } = useChat({
+    transport,
+    messages: initialMessages,
+  });
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
