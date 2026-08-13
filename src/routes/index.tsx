@@ -107,24 +107,10 @@ export const Route = createFileRoute("/")({
 function Index() {
   useScrollReveal();
   return (
-    <div className="relative">
-      <ParticleField />
-      <div className="relative z-10">
-        <Nav />
-        <main>
-          <Hero />
-          <About />
-          <TechCube />
-          <Banner />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Education />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-      <Chatbot />
-    </div>
+    <>
+      <Hero />
+      <Banner />
+    </>
   );
+
 }
