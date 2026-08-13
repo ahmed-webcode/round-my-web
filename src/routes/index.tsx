@@ -1,17 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
-import { ParticleField } from "@/components/portfolio/ParticleField";
-import { Nav } from "@/components/portfolio/Nav";
 import { Hero } from "@/components/portfolio/Hero";
-import { About } from "@/components/portfolio/About";
-import { TechCube } from "@/components/portfolio/TechCube";
-import { Banner, Experience } from "@/components/portfolio/Experience";
-import { Projects } from "@/components/portfolio/Projects";
-import { Skills } from "@/components/portfolio/Skills";
-import { Education } from "@/components/portfolio/Education";
-import { Contact, Footer } from "@/components/portfolio/Contact";
-import { Chatbot } from "@/components/portfolio/Chatbot";
+import { Banner } from "@/components/portfolio/Experience";
 import { useScrollReveal } from "@/components/portfolio/hooks";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -115,24 +107,10 @@ export const Route = createFileRoute("/")({
 function Index() {
   useScrollReveal();
   return (
-    <div className="relative">
-      <ParticleField />
-      <div className="relative z-10">
-        <Nav />
-        <main>
-          <Hero />
-          <About />
-          <TechCube />
-          <Banner />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Education />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-      <Chatbot />
-    </div>
+    <>
+      <Hero />
+      <Banner />
+    </>
   );
+
 }

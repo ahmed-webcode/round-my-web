@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
-];
+  { to: "/about", label: "About" },
+  { to: "/experience", label: "Experience" },
+  { to: "/projects", label: "Projects" },
+  { to: "/skills", label: "Skills" },
+  { to: "/education", label: "Education" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,32 +38,33 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#" className="font-mono-x text-lg font-semibold sm:text-xl">
+        <Link to="/" className="font-mono-x text-lg font-semibold sm:text-xl">
           <span className="text-primary">&lt;</span>Ahmed
           <span className="text-primary">/&gt;</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
+            <li key={l.to}>
+              <Link
+                to={l.to}
                 className="group relative py-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden rounded-lg border border-primary px-5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-block"
           >
             Hire Me
-          </a>
+          </Link>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -83,24 +85,25 @@ export function Nav() {
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
           {LINKS.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
+            <li key={l.to}>
+              <Link
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+                activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 block rounded-lg bg-gradient-primary px-3 py-3 text-center text-base font-semibold text-primary-foreground"
             >
               Hire Me
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

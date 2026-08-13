@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Send, Briefcase, Code2, Languages, Container } from "lucide-react";
 import { useTyping } from "./hooks";
 import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
@@ -75,18 +76,18 @@ export function Hero() {
         </div>
 
         <div className="flex flex-col justify-center gap-3 opacity-0 [animation:fadeInUp_0.8s_ease_forwards_0.9s] sm:flex-row">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:-translate-y-0.5"
           >
             <Send size={18} /> Get In Touch
-          </a>
-          <a
-            href="#experience"
+          </Link>
+          <Link
+            to="/projects"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-7 py-3.5 font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
           >
             <Briefcase size={18} /> View My Work
-          </a>
+          </Link>
         </div>
       </div>
 

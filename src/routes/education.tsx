@@ -1,0 +1,32 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Education } from "@/components/portfolio/Education";
+import { useScrollReveal } from "@/components/portfolio/hooks";
+
+const TITLE = "Education & Languages — Ahmed Muhammed Seid";
+const DESC =
+  "Education of Ahmed Muhammed Seid: BS Software Engineering and BS Arabic Language from Addis Ababa University, plus certifications and languages.";
+
+export const Route = createFileRoute("/education")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: "https://ahmedms.lovable.app/education" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+    ],
+    links: [{ rel: "canonical", href: "https://ahmedms.lovable.app/education" }],
+  }),
+  component: EducationPage,
+});
+
+function EducationPage() {
+  useScrollReveal();
+  return (
+    <div className="pt-20">
+      <Education />
+    </div>
+  );
+}
