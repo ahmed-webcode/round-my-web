@@ -1,7 +1,7 @@
 export const profile = {
   name: "Ahmed Muhammed Seid",
   alternateNames: ["AhmedMS"],
-  title: "Software Developer & Project Manager",
+  title: "Front End Developer & Software Engineer",
   location: "Addis Ababa, Ethiopia",
   summary:
     "Software Developer and Project Manager based in Addis Ababa, Ethiopia. Turns complex problems into elegant, scalable solutions and bridges engineering with project delivery. Trilingual collaboration in English, Arabic, and Amharic.",
@@ -63,6 +63,41 @@ export const profile = {
       stack: ["React", "Node.js"],
       description:
         "A portal where teachers and parents meet to track students' learning patterns, progress, and daily behavior in a collaborative dashboard.",
+    },
+    {
+      name: "Sanid Islamic Development Center (SIDC)",
+      url: "https://sanid-sable.vercel.app/",
+      stack: ["React", "Responsive frontend"],
+      description:
+        "Bilingual website for a registered Ethiopian non-profit — strategic pillars, governance, media gallery and partnership calls.",
+    },
+    {
+      name: "HOA Agriproducts",
+      url: "https://hoaglobalagro.vercel.app/",
+      stack: ["React", "Responsive frontend"],
+      description:
+        "Corporate landing experience for an East African animal-nutrition distributor with a clear partnership funnel.",
+    },
+    {
+      name: "Moon Cakes",
+      url: "https://mooncakes.lovable.app/",
+      stack: ["React", "Motion design"],
+      description:
+        "Cinematic dark-mode brand site for a bakery with gallery, menu and light/dark toggle.",
+    },
+    {
+      name: "MOSQIKIL Pro",
+      url: "https://mosqikil-3.vercel.app/",
+      stack: ["React", "3D/animation"],
+      description:
+        "Product launch page for a next-gen mosquito repellent device with animated architecture sections.",
+    },
+    {
+      name: "CBE Hero",
+      url: "https://cbe-hero.vercel.app/",
+      stack: ["React", "Animation"],
+      description:
+        "Concept experience for Commercial Bank of Ethiopia with an animated coin hero and legacy storytelling.",
     },
   ],
 } as const;
