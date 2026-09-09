@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
 import { Hero } from "@/components/portfolio/Hero";
 import { Banner } from "@/components/portfolio/Experience";
+import { HomeOverview } from "@/components/portfolio/HomeOverview";
 import { useScrollReveal } from "@/components/portfolio/hooks";
 
 
@@ -109,6 +110,7 @@ function Index() {
   return (
     <>
       <Hero />
+      <HomeOverview />
       <Banner />
     </>
   );

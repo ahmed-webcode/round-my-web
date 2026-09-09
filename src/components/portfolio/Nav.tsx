@@ -50,6 +50,7 @@ export function Nav() {
               <Link
                 to={l.to}
                 className="group relative py-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                activeOptions={{ exact: l.to === "/" }}
                 activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
@@ -91,6 +92,7 @@ export function Nav() {
                 to={l.to}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+                activeOptions={{ exact: l.to === "/" }}
                 activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
