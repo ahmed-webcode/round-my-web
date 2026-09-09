@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/experience", label: "Experience" },
   { to: "/projects", label: "Projects" },
