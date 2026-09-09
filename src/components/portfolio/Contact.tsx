@@ -1,12 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TelegramIcon } from "./BrandIcons";
+import { LinkedinIcon, TelegramIcon } from "./BrandIcons";
 
 const SOCIALS = [
-  {
-    icon: GithubIcon,
-    label: "GitHub",
-    href: "https://github.com/ahmed-webcode",
-  },
   {
     icon: LinkedinIcon,
     label: "LinkedIn",

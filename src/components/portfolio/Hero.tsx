@@ -5,7 +5,7 @@ import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
 
 const BADGES = [
   { icon: Code2, label: "Python Expert" },
-  { icon: Briefcase, label: "Project Manager" },
+  { icon: Briefcase, label: "Front End Developer" },
   { icon: Languages, label: "Trilingual" },
   { icon: Container, label: "DevOps" },
 ];
@@ -13,7 +13,7 @@ const BADGES = [
 export function Hero() {
   const typed = useTyping([
     "Software Developer",
-    "Project Manager",
+    "Front End Developer",
     "Backend Engineer",
     "Arabic Linguist",
   ]);
@@ -50,7 +50,7 @@ export function Hero() {
         <h1 className="mb-5 text-4xl font-bold leading-[1.1] opacity-0 [animation:fadeInUp_0.8s_ease_forwards_0.3s] sm:text-6xl">
           Ahmed <span className="gradient-text">Muhammed</span> Seid
           <span className="mt-3 block text-lg font-semibold text-muted-foreground sm:text-2xl">
-            Software Developer &amp; Project Manager
+            Front End Developer &amp; Software Engineer
           </span>
         </h1>
         <div className="font-mono-x mb-7 flex min-h-8 items-center justify-center text-base text-muted-foreground opacity-0 [animation:fadeInUp_0.8s_ease_forwards_0.45s] sm:text-xl">

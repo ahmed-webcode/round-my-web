@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
 import { Hero } from "@/components/portfolio/Hero";
 import { Banner } from "@/components/portfolio/Experience";
+import { HomeOverview } from "@/components/portfolio/HomeOverview";
 import { useScrollReveal } from "@/components/portfolio/hooks";
 
 
@@ -11,12 +12,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Ahmed Muhammed Seid (AhmedMS) — Software Developer & Project Manager based in Addis Ababa, Ethiopia. Python, Django, React, DevOps, and trilingual collaboration in English, Arabic, and Amharic. Available for hire.",
+          "Ahmed Muhammed Seid (AhmedMS) — Front End Developer & Software Engineer based in Addis Ababa, Ethiopia. Python, Django, React, DevOps, and trilingual collaboration in English, Arabic, and Amharic. Available for hire.",
       },
       {
         name: "keywords",
         content:
-          "Ahmed Muhammed Seid, AhmedMS, Ahmed developer Ethiopia, project manager Ethiopia, project manager Addis Ababa, software developer Addis Ababa, software developer Ethiopia, Python developer Ethiopia, Django developer, React developer Ethiopia, DevOps Ethiopia, Ethiopian software engineer, Ethiopian project manager, Arabic speaking developer, freelance developer Ethiopia, hire developer Addis Ababa, Kheyrukum",
+          "Ahmed Muhammed Seid, AhmedMS, Ahmed developer Ethiopia, front end developer Ethiopia, front end developer Addis Ababa, React developer Addis Ababa, software developer Addis Ababa, software developer Ethiopia, Python developer Ethiopia, Django developer, React developer Ethiopia, DevOps Ethiopia, Ethiopian software engineer, Ethiopian project manager, Arabic speaking developer, freelance developer Ethiopia, hire developer Addis Ababa, Kheyrukum",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "geo.region", content: "ET-AA" },
@@ -25,23 +26,23 @@ export const Route = createFileRoute("/")({
       { name: "ICBM", content: "9.03, 38.74" },
       {
         property: "og:title",
-        content: "Ahmed Muhammed Seid — Software Developer & Project Manager in Addis Ababa",
+        content: "Ahmed Muhammed Seid — Front End Developer & Software Engineer in Addis Ababa",
       },
       {
         property: "og:description",
         content:
-          "Software Developer & Project Manager in Addis Ababa, Ethiopia. Python, Django, React, DevOps. Trilingual (English, Arabic, Amharic).",
+          "Front End Developer & Software Engineer in Addis Ababa, Ethiopia. Python, Django, React, DevOps. Trilingual (English, Arabic, Amharic).",
       },
       { property: "og:locale", content: "en_US" },
       { property: "og:url", content: "https://ahmedms.lovable.app/" },
       {
         name: "twitter:title",
-        content: "Ahmed Muhammed Seid — Software Developer & Project Manager in Addis Ababa",
+        content: "Ahmed Muhammed Seid — Front End Developer & Software Engineer in Addis Ababa",
       },
       {
         name: "twitter:description",
         content:
-          "Software Developer & Project Manager in Addis Ababa, Ethiopia. Python, Django, React, DevOps. Trilingual (English, Arabic, Amharic).",
+          "Front End Developer & Software Engineer in Addis Ababa, Ethiopia. Python, Django, React, DevOps. Trilingual (English, Arabic, Amharic).",
       },
     ],
     links: [
@@ -61,9 +62,9 @@ export const Route = createFileRoute("/")({
           "@type": "Person",
           name: "Ahmed Muhammed Seid",
           alternateName: ["AhmedMS", "Ahmed MS", "Ahmed Muhammed", "Ahmed Seid"],
-          jobTitle: "Software Developer & Project Manager",
+          jobTitle: "Front End Developer & Software Engineer",
           description:
-            "Software Developer and Project Manager based in Addis Ababa, Ethiopia. Specializes in Python, Django, React, and DevOps. Trilingual in English, Arabic, and Amharic.",
+            "Front End Developer and Software Engineer based in Addis Ababa, Ethiopia. Specializes in Python, Django, React, and DevOps. Trilingual in English, Arabic, and Amharic.",
           url: "https://ahmedms.lovable.app/",
           image: `https://ahmedms.lovable.app${ahmedAsset.url}`,
           email: "mailto:ahmedmuh543@gmail.com",
@@ -109,6 +110,7 @@ function Index() {
   return (
     <>
       <Hero />
+      <HomeOverview />
       <Banner />
     </>
   );
