@@ -50,7 +50,7 @@ export function Hero() {
         <h1 className="mb-5 text-4xl font-bold leading-[1.1] opacity-0 [animation:fadeInUp_0.8s_ease_forwards_0.3s] sm:text-6xl">
           Ahmed <span className="gradient-text">Muhammed</span> Seid
           <span className="mt-3 block text-lg font-semibold text-muted-foreground sm:text-2xl">
-            Software Developer &amp; Front End Developer
+            Front End Developer &amp; Software Engineer
           </span>
         </h1>
         <div className="font-mono-x mb-7 flex min-h-8 items-center justify-center text-base text-muted-foreground opacity-0 [animation:fadeInUp_0.8s_ease_forwards_0.45s] sm:text-xl">
