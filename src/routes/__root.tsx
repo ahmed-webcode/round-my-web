@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ahmed Muhammed Seid | Software Developer & Project Manager" },
+      { title: "Ahmed Muhammed Seid | Software Developer & Front End Developer" },
       { name: "author", content: "Ahmed Muhammed Seid" },
       {
         name: "google-site-verification",
