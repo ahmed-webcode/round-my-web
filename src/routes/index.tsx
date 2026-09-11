@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
+const ahmedAsset = { url: "/ahmed.jpg" };
 import { Hero } from "@/components/portfolio/Hero";
 import { Banner } from "@/components/portfolio/Experience";
 import { HomeOverview } from "@/components/portfolio/HomeOverview";

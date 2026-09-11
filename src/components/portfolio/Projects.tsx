@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
-import kheyrukumAsset from "@/assets/kheyrukum.png.asset.json";
-import kheyrukumPortalAsset from "@/assets/kheyrukum-portal.png.asset.json";
-import sanidAsset from "@/assets/sanid.png.asset.json";
-import hoaAsset from "@/assets/hoaglobalagro.png.asset.json";
-import mooncakesAsset from "@/assets/mooncakes.png.asset.json";
-import mosqikilAsset from "@/assets/mosqikil.png.asset.json";
-import cbeAsset from "@/assets/cbehero.png.asset.json";
+const kheyrukumAsset = { url: "/projects/kheyrukum.png" };
+const kheyrukumPortalAsset = { url: "/projects/kheyrukum-portal.png" };
+const sanidAsset = { url: "/projects/sanid.png" };
+const hoaAsset = { url: "/projects/hoaglobalagro.png" };
+const mooncakesAsset = { url: "/projects/mooncakes.png" };
+const mosqikilAsset = { url: "/projects/mosqikil.png" };
+const cbeAsset = { url: "/projects/cbehero.png" };
 
 const PROJECTS = [
   {
@@ -111,12 +111,30 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative overflow-hidden bg-background py-24">
+      {/* full-page screenshot backdrop of the active project */}
+      {active.image && (
+        <div
+          aria-hidden
+          key={active.image}
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-top bg-no-repeat opacity-30 blur-[2px] transition-opacity duration-700"
+          style={{ backgroundImage: `url(${active.image})` }}
+        />
+      )}
       {/* project-aware ambient background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 transition-all duration-700 ease-out"
         style={{
           background: `radial-gradient(60% 60% at 20% 20%, ${active.ambient[0]}55, transparent 70%), radial-gradient(60% 60% at 85% 80%, ${active.ambient[1]}45, transparent 70%)`,
+        }}
+      />
+      {/* readability veil */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, color-mix(in oklab, var(--background) 88%, transparent), color-mix(in oklab, var(--background) 72%, transparent), color-mix(in oklab, var(--background) 94%, transparent))",
         }}
       />
       <div className="relative z-10">
