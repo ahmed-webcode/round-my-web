@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import kheyrukumAsset from "@/assets/kheyrukum.png.asset.json";
@@ -97,6 +97,17 @@ export function Projects() {
   const total = PROJECTS.length;
   const go = (dir: number) => setIndex((i) => (i + dir + total) % total);
   const active = PROJECTS[index];
+  const touchX = useRef<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 45) go(dx < 0 ? 1 : -1);
+    touchX.current = null;
+  };
 
   return (
     <section id="projects" className="relative overflow-hidden bg-background py-24">
@@ -115,7 +126,11 @@ export function Projects() {
           subtitle="Projects I have built and managed"
         />
         <div className="mx-auto max-w-5xl px-5 sm:px-8">
-          <div className="overflow-hidden rounded-3xl">
+          <div
+            className="overflow-hidden rounded-3xl"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${index * 100}%)` }}
@@ -126,18 +141,26 @@ export function Projects() {
                   <div key={p.title} className="w-full shrink-0">
                     <div className="grid overflow-hidden rounded-3xl border border-border bg-card/90 backdrop-blur-sm md:grid-cols-2">
                       <div
-                        className="grid min-h-[200px] place-items-center overflow-hidden p-0"
+                        className="grid place-items-center overflow-hidden p-5 sm:p-7"
                         style={{ background: p.gradient }}
                       >
                         {p.image ? (
-                          <img
-                            src={p.image}
-                            alt={`${p.title} website preview`}
-                            loading="lazy"
-                            className="h-full w-full object-cover object-top"
-                          />
+                          <figure className="w-full overflow-hidden rounded-xl border border-white/15 shadow-2xl ring-1 ring-black/20">
+                            <div className="flex items-center gap-1.5 bg-black/50 px-3 py-2">
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                            </div>
+                            <img
+                              src={p.image}
+                              alt={`${p.title} website preview`}
+                              loading="lazy"
+                              decoding="async"
+                              className="aspect-[16/10] w-full bg-black object-cover object-top transition-transform duration-700 ease-out hover:scale-[1.04]"
+                            />
+                          </figure>
                         ) : Icon ? (
-                          <Icon size={80} className="anim-float text-white" />
+                          <Icon size={80} className="anim-float min-h-[200px] text-white" />
                         ) : null}
                       </div>
                       <div className="flex flex-col justify-center p-8">
