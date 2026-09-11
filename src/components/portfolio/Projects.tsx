@@ -116,7 +116,7 @@ export function Projects() {
         <div
           aria-hidden
           key={active.image}
-          className="pointer-events-none absolute inset-0 z-0 animate-[fade-in_0.7s_ease-out] bg-cover bg-top bg-no-repeat opacity-25 blur-[2px]"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-top bg-no-repeat opacity-30 blur-[2px] transition-opacity duration-700"
           style={{ backgroundImage: `url(${active.image})` }}
         />
       )}
@@ -134,7 +134,7 @@ export function Projects() {
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(to bottom, hsl(var(--background) / 0.85), hsl(var(--background) / 0.7), hsl(var(--background) / 0.92))",
+            "linear-gradient(to bottom, color-mix(in oklab, var(--background) 88%, transparent), color-mix(in oklab, var(--background) 72%, transparent), color-mix(in oklab, var(--background) 94%, transparent))",
         }}
       />
       <div className="relative z-10">
