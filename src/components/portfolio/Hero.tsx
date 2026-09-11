@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Send, Briefcase, Code2, Languages, Container } from "lucide-react";
 import { useTyping } from "./hooks";
-import ahmedAsset from "@/assets/ahmed.jpg.asset.json";
+const ahmedAsset = { url: "/ahmed.jpg" };
 
 const BADGES = [
   { icon: Code2, label: "Python Expert" },
