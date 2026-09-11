@@ -126,18 +126,26 @@ export function Projects() {
                   <div key={p.title} className="w-full shrink-0">
                     <div className="grid overflow-hidden rounded-3xl border border-border bg-card/90 backdrop-blur-sm md:grid-cols-2">
                       <div
-                        className="grid min-h-[200px] place-items-center overflow-hidden p-0"
+                        className="grid place-items-center overflow-hidden p-5 sm:p-7"
                         style={{ background: p.gradient }}
                       >
                         {p.image ? (
-                          <img
-                            src={p.image}
-                            alt={`${p.title} website preview`}
-                            loading="lazy"
-                            className="h-full w-full object-cover object-top"
-                          />
+                          <figure className="w-full overflow-hidden rounded-xl border border-white/15 shadow-2xl ring-1 ring-black/20">
+                            <div className="flex items-center gap-1.5 bg-black/50 px-3 py-2">
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                            </div>
+                            <img
+                              src={p.image}
+                              alt={`${p.title} website preview`}
+                              loading="lazy"
+                              decoding="async"
+                              className="aspect-[16/10] w-full bg-black object-cover object-top transition-transform duration-700 ease-out hover:scale-[1.04]"
+                            />
+                          </figure>
                         ) : Icon ? (
-                          <Icon size={80} className="anim-float text-white" />
+                          <Icon size={80} className="anim-float min-h-[200px] text-white" />
                         ) : null}
                       </div>
                       <div className="flex flex-col justify-center p-8">
