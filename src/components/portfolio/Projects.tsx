@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import kheyrukumAsset from "@/assets/kheyrukum.png.asset.json";
@@ -97,6 +97,17 @@ export function Projects() {
   const total = PROJECTS.length;
   const go = (dir: number) => setIndex((i) => (i + dir + total) % total);
   const active = PROJECTS[index];
+  const touchX = useRef<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 45) go(dx < 0 ? 1 : -1);
+    touchX.current = null;
+  };
 
   return (
     <section id="projects" className="relative overflow-hidden bg-background py-24">
