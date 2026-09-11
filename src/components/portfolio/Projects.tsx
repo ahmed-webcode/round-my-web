@@ -111,12 +111,30 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative overflow-hidden bg-background py-24">
+      {/* full-page screenshot backdrop of the active project */}
+      {active.image && (
+        <div
+          aria-hidden
+          key={active.image}
+          className="pointer-events-none absolute inset-0 z-0 animate-[fade-in_0.7s_ease-out] bg-cover bg-top bg-no-repeat opacity-25 blur-[2px]"
+          style={{ backgroundImage: `url(${active.image})` }}
+        />
+      )}
       {/* project-aware ambient background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 transition-all duration-700 ease-out"
         style={{
           background: `radial-gradient(60% 60% at 20% 20%, ${active.ambient[0]}55, transparent 70%), radial-gradient(60% 60% at 85% 80%, ${active.ambient[1]}45, transparent 70%)`,
+        }}
+      />
+      {/* readability veil */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, hsl(var(--background) / 0.85), hsl(var(--background) / 0.7), hsl(var(--background) / 0.92))",
         }}
       />
       <div className="relative z-10">
