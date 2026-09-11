@@ -29,6 +29,11 @@ PROJECTS
 - Fleet Management System (AAU) — React + Node.js + MySQL; full digital transformation of AAU transport.
 - kheyrukum.com — Designed and built the Kheyrukum website; a polished digital presence that tells its story.
 - kheyrukumportal.vercel.app — A portal where teachers and parents meet to track students' learning patterns, progress, and daily behavior in a collaborative dashboard.
+- Sanid Islamic Development Center (https://sanid-sable.vercel.app/) — bilingual site for a registered Ethiopian non-profit: strategic pillars, governance, media gallery and partnership calls in a green-and-gold identity.
+- HOA Agriproducts (https://hoaglobalagro.vercel.app/) — corporate landing experience for an East African animal-nutrition distributor with editorial typography and a partnership funnel.
+- Moon Cakes (https://mooncakes.lovable.app/) — cinematic dark-mode bakery brand site with a full-screen moon hero, gallery, menu and light/dark toggle.
+- MOSQIKIL Pro (https://mosqikil-3.vercel.app/) — product launch page for a next-gen mosquito repellent device with animated 3D architecture sections and a direct order path.
+- CBE Hero (https://cbe-hero.vercel.app/) — concept experience for Commercial Bank of Ethiopia with an animated coin hero, sound and legacy storytelling.
 
 STRENGTHS
 - Turning complex problems into elegant, scalable solutions.
