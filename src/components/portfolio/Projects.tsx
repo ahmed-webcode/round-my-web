@@ -126,7 +126,11 @@ export function Projects() {
           subtitle="Projects I have built and managed"
         />
         <div className="mx-auto max-w-5xl px-5 sm:px-8">
-          <div className="overflow-hidden rounded-3xl">
+          <div
+            className="overflow-hidden rounded-3xl"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${index * 100}%)` }}
