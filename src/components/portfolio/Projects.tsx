@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
-import kheyrukumAsset from "@/assets/kheyrukum.png.asset.json";
-import kheyrukumPortalAsset from "@/assets/kheyrukum-portal.png.asset.json";
-import sanidAsset from "@/assets/sanid.png.asset.json";
-import hoaAsset from "@/assets/hoaglobalagro.png.asset.json";
-import mooncakesAsset from "@/assets/mooncakes.png.asset.json";
-import mosqikilAsset from "@/assets/mosqikil.png.asset.json";
-import cbeAsset from "@/assets/cbehero.png.asset.json";
+const kheyrukumAsset = { url: "/projects/kheyrukum.png" };
+const kheyrukumPortalAsset = { url: "/projects/kheyrukum-portal.png" };
+const sanidAsset = { url: "/projects/sanid.png" };
+const hoaAsset = { url: "/projects/hoaglobalagro.png" };
+const mooncakesAsset = { url: "/projects/mooncakes.png" };
+const mosqikilAsset = { url: "/projects/mosqikil.png" };
+const cbeAsset = { url: "/projects/cbehero.png" };
 
 const PROJECTS = [
   {
