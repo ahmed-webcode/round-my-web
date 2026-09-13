@@ -12,7 +12,7 @@ const LINKS = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function Nav() {
+export function Nav({ immersive = false }: { immersive?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -33,9 +33,11 @@ export function Nav() {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled && !immersive
           ? "border-b border-border bg-background/85 py-3 backdrop-blur-xl"
-          : "py-5"
+          : immersive
+            ? "py-5 text-project-foreground"
+            : "py-5"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
@@ -49,7 +51,7 @@ export function Nav() {
             <li key={l.to}>
               <Link
                 to={l.to}
-                className="group relative py-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                 className={`group relative py-1 text-sm font-medium transition-colors ${immersive ? "text-project-muted hover:text-project-foreground" : "text-muted-foreground hover:text-foreground"}`}
                 activeOptions={{ exact: l.to === "/" }}
                 activeProps={{ className: "text-foreground" }}
               >
@@ -63,7 +65,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden rounded-lg border border-primary px-5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-block"
+             className={`hidden rounded-lg border px-5 py-2 text-sm font-semibold transition-colors sm:inline-block ${immersive ? "border-project-line bg-project-surface text-project-foreground backdrop-blur-md hover:bg-project-foreground hover:text-project-inverse" : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"}`}
           >
             Hire Me
           </Link>
@@ -72,7 +74,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground md:hidden"
+             className={`grid h-10 w-10 place-items-center rounded-lg border md:hidden ${immersive ? "border-project-line bg-project-surface text-project-foreground backdrop-blur-md" : "border-border text-foreground"}`}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>

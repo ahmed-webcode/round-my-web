@@ -25,7 +25,7 @@ export const Route = createFileRoute("/projects")({
 function ProjectsPage() {
   useScrollReveal();
   return (
-    <div className="pt-20">
+    <div>
       <Projects />
     </div>
   );

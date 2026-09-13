@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Truck } from "lucide-react";
-import { SectionHeader } from "./SectionHeader";
+import { useEffect, useRef, useState } from "react";
+import { ArrowDown, ExternalLink, Truck } from "lucide-react";
 const kheyrukumAsset = { url: "/projects/kheyrukum.png" };
 const kheyrukumPortalAsset = { url: "/projects/kheyrukum-portal.png" };
 const sanidAsset = { url: "/projects/sanid.png" };
@@ -95,160 +94,135 @@ const PROJECTS = [
 export function Projects() {
   const [index, setIndex] = useState(0);
   const total = PROJECTS.length;
-  const go = (dir: number) => setIndex((i) => (i + dir + total) % total);
-  const active = PROJECTS[index];
-  const touchX = useRef<number | null>(null);
+  const sectionRefs = useRef<Array<HTMLElement | null>>([]);
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchX.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchX.current;
-    if (Math.abs(dx) > 45) go(dx < 0 ? 1 : -1);
-    touchX.current = null;
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add("projects-scroll");
+    return () => root.classList.remove("projects-scroll");
+  }, []);
+
+  useEffect(() => {
+    const sections = sectionRefs.current.filter((section): section is HTMLElement => Boolean(section));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const nextIndex = Number((visible.target as HTMLElement).dataset.projectIndex);
+        if (Number.isNaN(nextIndex)) return;
+        setIndex(nextIndex);
+        window.dispatchEvent(
+          new CustomEvent("project-world-change", { detail: { index: nextIndex } }),
+        );
+      },
+      { threshold: [0.35, 0.55, 0.75] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    window.dispatchEvent(new CustomEvent("project-world-change", { detail: { index: 0 } }));
+    return () => observer.disconnect();
+  }, []);
+
+  const goToProject = (projectIndex: number) => {
+    sectionRefs.current[projectIndex]?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section id="projects" className="relative overflow-hidden bg-background py-24">
-      {/* full-page screenshot backdrop of the active project */}
-      {active.image && (
-        <div
-          aria-hidden
-          key={active.image}
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-top bg-no-repeat opacity-30 blur-[2px] transition-opacity duration-700"
-          style={{ backgroundImage: `url(${active.image})` }}
-        />
-      )}
-      {/* project-aware ambient background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 transition-all duration-700 ease-out"
-        style={{
-          background: `radial-gradient(60% 60% at 20% 20%, ${active.ambient[0]}55, transparent 70%), radial-gradient(60% 60% at 85% 80%, ${active.ambient[1]}45, transparent 70%)`,
-        }}
-      />
-      {/* readability veil */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, color-mix(in oklab, var(--background) 88%, transparent), color-mix(in oklab, var(--background) 72%, transparent), color-mix(in oklab, var(--background) 94%, transparent))",
-        }}
-      />
-      <div className="relative z-10">
-        <SectionHeader
-          label="Projects"
-          title="Featured Work"
-          subtitle="Projects I have built and managed"
-        />
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
-          <div
-            className="overflow-hidden rounded-3xl"
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
+    <div id="projects" className="relative z-10">
+      {PROJECTS.map((project, projectIndex) => {
+        const Icon = project.icon;
+        const active = projectIndex === index;
+        return (
+          <section
+            key={project.title}
+            ref={(node) => {
+              sectionRefs.current[projectIndex] = node;
+            }}
+            data-project-index={projectIndex}
+            className="project-scene flex min-h-[100svh] snap-start items-center px-5 pb-14 pt-28 sm:px-8 sm:pt-32"
           >
             <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${index * 100}%)` }}
+              className={`mx-auto grid w-full max-w-6xl items-end gap-10 transition-all duration-700 ease-out md:grid-cols-[minmax(0,1fr)_minmax(300px,0.7fr)] ${
+                active ? "translate-y-0 opacity-100" : "translate-y-10 opacity-40"
+              }`}
             >
-              {PROJECTS.map((p) => {
-                const Icon = p.icon;
-                return (
-                  <div key={p.title} className="w-full shrink-0">
-                    <div className="grid overflow-hidden rounded-3xl border border-border bg-card/90 backdrop-blur-sm md:grid-cols-2">
-                      <div
-                        className="grid place-items-center overflow-hidden p-5 sm:p-7"
-                        style={{ background: p.gradient }}
-                      >
-                        {p.image ? (
-                          <figure className="w-full overflow-hidden rounded-xl border border-white/15 shadow-2xl ring-1 ring-black/20">
-                            <div className="flex items-center gap-1.5 bg-black/50 px-3 py-2">
-                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                              <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                            </div>
-                            <img
-                              src={p.image}
-                              alt={`${p.title} website preview`}
-                              loading="lazy"
-                              decoding="async"
-                              className="aspect-[16/10] w-full bg-black object-cover object-top transition-transform duration-700 ease-out hover:scale-[1.04]"
-                            />
-                          </figure>
-                        ) : Icon ? (
-                          <Icon size={80} className="anim-float min-h-[200px] text-white" />
-                        ) : null}
-                      </div>
-                      <div className="flex flex-col justify-center p-8">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          {p.tags.map((t) => (
-                            <span
-                              key={t}
-                              className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                        <h3 className="mb-2 text-xl font-semibold">{p.title}</h3>
-                        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                          {p.desc}
-                        </p>
-                        {p.link && (
-                          <div className="flex flex-wrap gap-3">
-                            <a
-                              href={p.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-light px-4 py-2 text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                            >
-                              <ExternalLink size={16} /> Visit Site
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+              <div className="max-w-3xl">
+                <p className="font-mono-x mb-5 text-xs uppercase text-project-muted">
+                  {String(projectIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                </p>
+                <div className="mb-5 flex flex-wrap gap-x-5 gap-y-2 border-l border-project-line pl-4">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="font-mono-x text-[11px] uppercase text-project-muted">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h1 className="max-w-4xl text-5xl font-bold leading-[0.98] text-project-foreground sm:text-7xl lg:text-8xl">
+                  {project.title}
+                </h1>
+              </div>
 
-          <div className="mt-8 flex items-center justify-center gap-6">
-            <button
-              type="button"
-              aria-label="Previous project"
-              onClick={() => go(-1)}
-              className="grid h-12 w-12 place-items-center rounded-full border border-border bg-card transition-all hover:scale-110 hover:bg-primary hover:text-primary-foreground"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <div className="flex flex-wrap justify-center gap-2">
-              {PROJECTS.map((p, i) => (
-                <button
-                  key={p.title}
-                  type="button"
-                  aria-label={`Go to ${p.title}`}
-                  onClick={() => setIndex(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    i === index ? "w-7 bg-primary" : "w-2.5 bg-border"
-                  }`}
-                />
-              ))}
+              <div className="border-t border-project-line pt-6 md:mb-2">
+                <p className="text-base leading-relaxed text-project-muted sm:text-lg">{project.desc}</p>
+                <div className="mt-7 flex items-center gap-5">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-project-line bg-project-surface px-5 py-3 text-sm font-semibold text-project-foreground backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-project-foreground hover:bg-project-foreground hover:text-project-inverse"
+                    >
+                      Visit Site <ExternalLink size={16} />
+                    </a>
+                  )}
+                  {!project.image && Icon && (
+                    <span className="grid h-12 w-12 place-items-center border border-project-line bg-project-surface text-project-foreground backdrop-blur-md">
+                      <Icon size={22} />
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
-            <button
-              type="button"
-              aria-label="Next project"
-              onClick={() => go(1)}
-              className="grid h-12 w-12 place-items-center rounded-full border border-border bg-card transition-all hover:scale-110 hover:bg-primary hover:text-primary-foreground"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+
+            {projectIndex === 0 && (
+              <button
+                type="button"
+                onClick={() => goToProject(1)}
+                className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-project-muted transition-colors hover:text-project-foreground sm:flex"
+              >
+                <span className="font-mono-x text-[10px] uppercase">Scroll to explore</span>
+                <ArrowDown size={17} className="animate-bounce" />
+              </button>
+            )}
+          </section>
+        );
+      })}
+
+      <nav
+        aria-label="Project progress"
+        className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 sm:flex lg:right-8"
+      >
+        {PROJECTS.map((project, projectIndex) => (
+          <button
+            key={project.title}
+            type="button"
+            aria-label={`Go to ${project.title}`}
+            aria-current={projectIndex === index ? "step" : undefined}
+            onClick={() => goToProject(projectIndex)}
+            className={`relative h-10 w-px bg-project-line transition-colors after:absolute after:inset-x-[-7px] after:inset-y-0 after:content-[''] ${
+              projectIndex === index ? "bg-project-foreground" : "hover:bg-project-muted"
+            }`}
+          />
+        ))}
+      </nav>
+    </div>
   );
 }
+
+export const PROJECT_BACKGROUNDS = PROJECTS.map((project) => ({
+  image: project.image,
+  gradient: project.gradient,
+  title: project.title,
+}));

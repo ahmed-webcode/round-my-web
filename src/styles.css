@@ -42,6 +42,12 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-project-foreground: var(--project-foreground);
+  --color-project-muted: var(--project-muted);
+  --color-project-line: var(--project-line);
+  --color-project-surface: var(--project-surface);
+  --color-project-inverse: var(--project-inverse);
+  --color-project-fallback: var(--project-fallback);
 
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -84,6 +90,17 @@
   --gradient-tri: linear-gradient(135deg, oklch(0.65 0.2 12) 0%, oklch(0.45 0.15 300) 50%, oklch(0.4 0.12 265) 100%);
   --shadow-glow: 0 0 40px -8px oklch(0.65 0.2 12 / 0.55);
   --shadow-card: 0 20px 60px -12px oklch(0 0 0 / 0.5);
+
+  /* Immersive project worlds */
+  --project-foreground: oklch(0.98 0.005 285);
+  --project-muted: oklch(0.86 0.012 285);
+  --project-line: oklch(1 0 0 / 26%);
+  --project-surface: oklch(0.08 0.01 285 / 38%);
+  --project-inverse: oklch(0.12 0.01 285);
+  --project-fallback: oklch(0.09 0.015 285);
+  --project-veil: linear-gradient(90deg, oklch(0.05 0.012 285 / 88%) 0%, oklch(0.05 0.012 285 / 65%) 48%, oklch(0.05 0.012 285 / 48%) 100%);
+  --project-nav-fade: linear-gradient(to bottom, oklch(0.04 0.01 285 / 82%), transparent);
+  --project-footer-fade: linear-gradient(to top, oklch(0.04 0.01 285 / 80%), transparent);
 }
 
 @layer base {
@@ -140,6 +157,37 @@
 
 @utility bg-gradient-tri {
   background-image: var(--gradient-tri);
+}
+
+@utility bg-project-veil {
+  background-image: var(--project-veil);
+}
+
+@utility bg-project-nav-fade {
+  background-image: var(--project-nav-fade);
+}
+
+@utility bg-project-footer-fade {
+  background-image: var(--project-footer-fade);
+}
+
+html.projects-scroll {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 0;
+}
+
+html.projects-scroll body {
+  background: var(--project-fallback);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --project-veil: linear-gradient(to bottom, oklch(0.05 0.012 285 / 78%), oklch(0.05 0.012 285 / 70%) 55%, oklch(0.05 0.012 285 / 92%));
+  }
+
+  .project-scene {
+    min-height: 100svh;
+  }
 }
 
 /* ===== Animations ===== */

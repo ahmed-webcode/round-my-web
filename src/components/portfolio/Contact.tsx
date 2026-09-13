@@ -82,10 +82,12 @@ export function Contact() {
   );
 }
 
-export function Footer() {
+export function Footer({ immersive = false }: { immersive?: boolean }) {
   return (
-    <footer className="border-t border-border bg-background py-8 text-center">
-      <p className="text-sm text-dim">© 2026 Ahmed Muhammed Seid</p>
+    <footer
+      className={`relative z-20 border-t py-8 text-center backdrop-blur-sm ${immersive ? "snap-end border-project-line bg-project-surface" : "border-border bg-background"}`}
+    >
+      <p className={`text-sm ${immersive ? "text-project-muted" : "text-dim"}`}>© 2026 Ahmed Muhammed Seid</p>
     </footer>
   );
 }
