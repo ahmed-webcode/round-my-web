@@ -66,7 +66,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       )}
       <div className="relative z-10 flex min-h-screen flex-col">
         <Nav immersive={immersive} />
-        <main className="flex-1">{children}</main>
+        <main
+          key={location.pathname}
+          className="page-transition flex-1"
+        >
+          {children}
+        </main>
         <Footer immersive={immersive} />
       </div>
       <Chatbot />
