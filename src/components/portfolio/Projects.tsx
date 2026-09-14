@@ -224,5 +224,6 @@ export function Projects() {
 export const PROJECT_BACKGROUNDS = PROJECTS.map((project) => ({
   image: project.image,
   gradient: project.gradient,
+  ambient: project.ambient,
   title: project.title,
 }));
