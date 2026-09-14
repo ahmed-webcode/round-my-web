@@ -165,6 +165,26 @@ export function Projects() {
               </div>
 
               <div className="border-t border-project-line pt-6 md:mb-2">
+                {project.image && (
+                  <div
+                    className={`mb-6 overflow-hidden rounded-lg border border-project-line bg-project-surface shadow-2xl backdrop-blur-md transition-all duration-700 ease-out ${
+                      active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 border-b border-project-line px-3 py-2">
+                      <span className="h-2 w-2 rounded-full bg-project-line" />
+                      <span className="h-2 w-2 rounded-full bg-project-line" />
+                      <span className="h-2 w-2 rounded-full bg-project-line" />
+                    </div>
+                    <img
+                      src={project.image}
+                      alt={`${project.title} website screenshot`}
+                      className="aspect-[16/10] w-full object-cover object-top"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
                 <p className="text-base leading-relaxed text-project-muted sm:text-lg">{project.desc}</p>
                 <div className="mt-7 flex items-center gap-5">
                   {project.link && (
@@ -224,5 +244,6 @@ export function Projects() {
 export const PROJECT_BACKGROUNDS = PROJECTS.map((project) => ({
   image: project.image,
   gradient: project.gradient,
+  ambient: project.ambient,
   title: project.title,
 }));
