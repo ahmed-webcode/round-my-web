@@ -1,24 +1,19 @@
-# Immersive Projects Page
+# Smooth Page Navigation
 
-Turn the Projects page into a cinematic, scroll-driven showcase where every project fills the viewport and changes the atmosphere of the entire page.
+Add a restrained transition whenever visitors move between portfolio pages, while ensuring only the destination page remains in the layout.
 
 ## Experience
-- Replace the horizontal carousel with one full-screen vertical chapter per project.
-- Keep each project screenshot fixed behind the navigation, project content, and footer while its chapter is active.
-- Crossfade and gently scale backgrounds as scrolling activates the next project, with a dark readability veil tailored to the screenshot.
-- Use soft scroll snapping so wheel, trackpad, touch, and keyboard scrolling naturally settle on a complete project.
-- Present each project with editorial typography, number, tags, description, and its existing external link.
-- Add a slim project-progress rail and a clear scroll cue without cluttering mobile screens.
-- Let the final project background continue behind the footer so the page remains one continuous visual world.
+- Fade and lift each destination page into place with a short, polished animation.
+- Key the page container by its current path so rapid navigation replaces content instead of accumulating layers.
+- Keep the shared navigation, footer, chatbot, and project backgrounds stable during page changes.
+- Disable the effect for visitors who prefer reduced motion.
 
 ## Technical details
-- Track the active project with `IntersectionObserver`, using the viewport midpoint to avoid rapid background flicker.
-- Render all screenshot layers in a fixed page-level background stack and transition opacity/scale instead of changing a single CSS background URL.
-- Make the Projects page opt into an immersive layout state so shared navigation and footer become transparent only on this route.
-- Preserve reduced-motion support by disabling transforms and scroll animation where requested by the device.
-- Keep all existing local project images and links; no backend or content changes.
+- Apply the transition to the route-content container in the shared site layout.
+- Use a CSS keyframe animation with opacity and a small vertical offset; do not retain an outgoing-page copy.
+- Keep the effect compositor-friendly and prevent transition layers from intercepting interactions.
 
 ## Verification
-- Confirm every project activates from scrolling and displays the matching local screenshot.
-- Check desktop and mobile layouts, navigation readability, footer coverage, touch scrolling, and absence of horizontal overflow.
-- Confirm the page builds cleanly and project links remain usable.
+- Navigate repeatedly across desktop and mobile links, including rapid clicks.
+- Confirm one page is present at a time, scroll position resets correctly, and no content overlaps.
+- Confirm reduced-motion behavior and a clean build.
