@@ -29,15 +29,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           {PROJECT_BACKGROUNDS.map((project, projectIndex) => (
             <div
               key={project.title}
-              className={`absolute inset-0 transition-[opacity,transform] duration-1000 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-                projectIndex === activeProject ? "scale-100 opacity-100" : "scale-105 opacity-0"
+              className={`absolute inset-0 transition-[opacity,transform,filter] duration-[1200ms] ease-out motion-reduce:transform-none motion-reduce:transition-none ${
+                projectIndex === activeProject
+                  ? "scale-100 opacity-100 blur-0"
+                  : "scale-110 opacity-0 blur-md"
               }`}
             >
               {project.image ? (
                 <img
                   src={project.image}
                   alt=""
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-top brightness-[0.62] saturate-[1.15]"
                   loading={projectIndex === 0 ? "eager" : "lazy"}
                   decoding="async"
                 />
@@ -45,6 +47,17 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 <div className="h-full w-full" style={{ background: project.gradient }} />
               )}
             </div>
+          ))}
+          {PROJECT_BACKGROUNDS.map((project, projectIndex) => (
+            <div
+              key={`glow-${project.title}`}
+              className={`absolute inset-0 mix-blend-screen transition-opacity duration-[1200ms] ease-out ${
+                projectIndex === activeProject ? "opacity-45" : "opacity-0"
+              }`}
+              style={{
+                background: `radial-gradient(90% 70% at 15% 85%, ${project.ambient[0]} 0%, transparent 62%), radial-gradient(70% 60% at 90% 10%, ${project.ambient[1]} 0%, transparent 60%)`,
+              }}
+            />
           ))}
           <div className="absolute inset-0 bg-project-veil" />
           <div className="absolute inset-x-0 top-0 h-40 bg-project-nav-fade" />
