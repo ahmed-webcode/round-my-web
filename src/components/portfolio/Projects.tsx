@@ -167,7 +167,7 @@ export function Projects() {
               <div className="border-t border-project-line pt-6 md:mb-2">
                 {project.image && (
                   <div
-                    className={`mb-6 hidden overflow-hidden rounded-lg border border-project-line bg-project-surface shadow-2xl backdrop-blur-md transition-all duration-700 ease-out md:block ${
+                    className={`mb-6 overflow-hidden rounded-lg border border-project-line bg-project-surface shadow-2xl backdrop-blur-md transition-all duration-700 ease-out ${
                       active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                     }`}
                   >
