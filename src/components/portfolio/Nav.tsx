@@ -51,12 +51,15 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
             <li key={l.to}>
               <Link
                 to={l.to}
-                 className={`group relative py-1 text-sm font-medium transition-colors ${immersive ? "text-project-muted hover:text-project-foreground" : "text-muted-foreground hover:text-foreground"}`}
+                 className={`nav-link group relative py-1 text-sm font-medium transition-colors ${immersive ? "text-project-muted hover:text-project-foreground" : "text-muted-foreground hover:text-foreground"}`}
                 activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: "text-foreground" }}
+                activeProps={{
+                  className: `nav-active font-semibold ${immersive ? "text-project-foreground" : "text-foreground"}`,
+                  "aria-current": "page",
+                }}
               >
                 {l.label}
-                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
+                <span className="nav-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             </li>
           ))}
@@ -95,7 +98,10 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
                 activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: "text-foreground" }}
+                activeProps={{
+                  className: "bg-card font-semibold text-foreground border-l-2 border-primary",
+                  "aria-current": "page",
+                }}
               >
                 {l.label}
               </Link>
