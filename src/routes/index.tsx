@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 const ahmedAsset = { url: "/ahmed.jpg" };
 import { Hero } from "@/components/portfolio/Hero";
-import { Banner } from "@/components/portfolio/Experience";
+
 import { HomeOverview } from "@/components/portfolio/HomeOverview";
 import { useScrollReveal } from "@/components/portfolio/hooks";
 
@@ -111,7 +111,6 @@ function Index() {
     <>
       <Hero />
       <HomeOverview />
-      <Banner />
     </>
   );
 

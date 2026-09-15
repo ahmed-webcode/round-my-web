@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Banner, Experience } from "@/components/portfolio/Experience";
+import { Experience } from "@/components/portfolio/Experience";
 import { useScrollReveal } from "@/components/portfolio/hooks";
 
 const TITLE = "Experience — Ahmed Muhammed Seid, Project Manager Ethiopia";
@@ -26,7 +26,6 @@ function ExperiencePage() {
   useScrollReveal();
   return (
     <div className="pt-20">
-      <Banner />
       <Experience />
     </div>
   );

@@ -1,25 +1,6 @@
 import { Briefcase, CalendarDays, MapPin, TrendingUp, ShieldCheck, Clock, FileText } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
-export function Banner() {
-  return (
-    <section className="relative flex min-h-[320px] items-center justify-center overflow-hidden py-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10" />
-      <div className="anim-blob pointer-events-none absolute left-[10%] top-[20%] h-56 w-56 rounded-full bg-primary/25 blur-[70px]" />
-      <div className="anim-blob pointer-events-none absolute right-[15%] top-[35%] h-48 w-48 rounded-full bg-accent/25 blur-[70px] [animation-delay:3s]" />
-      <div className="relative z-10 px-5 text-center">
-        <h2 className="gradient-text mb-3 text-3xl font-extrabold sm:text-5xl">
-          Engineering Philosophy
-        </h2>
-        <p className="mx-auto max-w-xl text-base text-muted-foreground sm:text-lg">
-          Every line of code is a step toward innovation. I turn complex problems
-          into elegant, scalable solutions.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 const HIGHLIGHTS = [
   "Spearheaded the digital transformation of AAU's transport division, replacing manual logging with an automated Fleet Management System",
   "Improved fleet utilization and reduced unauthorized vehicle use through data-driven reporting",
