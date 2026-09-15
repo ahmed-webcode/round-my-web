@@ -67,7 +67,7 @@ export function Experience() {
                 </div>
               </div>
             </div>
-            <span className="font-mono-x inline-block shrink-0 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
+            <span className="font-mono-x w-fit shrink-0 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
               Feb 2025 – Feb 2026
             </span>
           </div>
