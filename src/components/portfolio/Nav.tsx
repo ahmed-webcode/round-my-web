@@ -98,7 +98,10 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
                 activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: "text-foreground" }}
+                activeProps={{
+                  className: "bg-card font-semibold text-foreground border-l-2 border-primary",
+                  "aria-current": "page",
+                }}
               >
                 {l.label}
               </Link>
