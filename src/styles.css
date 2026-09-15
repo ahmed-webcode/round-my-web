@@ -323,8 +323,16 @@ html.projects-scroll body {
 
 .page-transition {
   isolation: isolate;
-  animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: opacity, transform;
+  animation: pageEnter 0.24s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+}
+
+.nav-link.nav-active .nav-underline {
+  width: 100%;
 }
 
 .reveal {
