@@ -44,6 +44,13 @@ export const profile = {
   ],
   projects: [
     {
+      name: "Emarosh Residence",
+      url: "https://emarosh.vercel.app",
+      stack: ["React", "3D", "Scroll animation"],
+      description:
+        "A cinematic 3D scrolling experience for a luxury residence — brutalist architecture meets biophilic serenity across five levels. Open it and see the magic in the scroll.",
+    },
+    {
       name: "Fleet Management System (AAU)",
       url: null as string | null,
       stack: ["React", "Node.js", "MySQL"],

@@ -7,8 +7,19 @@ const hoaAsset = { url: "/projects/hoaglobalagro.png" };
 const mooncakesAsset = { url: "/projects/mooncakes.png" };
 const mosqikilAsset = { url: "/projects/mosqikil.png" };
 const cbeAsset = { url: "/projects/cbehero.png" };
+const emaroshAsset = { url: "/projects/emarosh.png" };
 
 const PROJECTS = [
+  {
+    icon: null,
+    image: emaroshAsset.url,
+    gradient: "linear-gradient(135deg, oklch(0.2 0.02 250), oklch(0.45 0.08 75))",
+    ambient: ["oklch(0.5 0.12 75)", "oklch(0.35 0.05 250)"],
+    tags: ["3D", "Scroll", "React", "Animation"],
+    title: "Emarosh Residence",
+    desc: "A cinematic 3D scrolling experience for a luxury residence — brutalist architecture meets biophilic serenity. Scroll through five levels of cantilevered volumes, thermal teak, and bronze louvers. Open it and see the magic in the scroll.",
+    link: "https://emarosh.vercel.app",
+  },
   {
     icon: Truck,
     image: null as string | null,
