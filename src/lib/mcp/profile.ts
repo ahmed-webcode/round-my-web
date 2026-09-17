@@ -51,6 +51,13 @@ export const profile = {
         "A cinematic 3D scrolling experience for a luxury residence — brutalist architecture meets biophilic serenity across five levels. Open it and see the magic in the scroll.",
     },
     {
+      name: "AURUM Mouse",
+      url: "https://aurum-opal-nu.vercel.app/",
+      stack: ["React", "3D", "Luxury product"],
+      description:
+        "A cinematic luxury product showcase for an artisan gaming mouse — hand-finished American Walnut meets aerospace metallurgy with esports-grade optical precision.",
+    },
+    {
       name: "Fleet Management System (AAU)",
       url: null as string | null,
       stack: ["React", "Node.js", "MySQL"],

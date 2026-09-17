@@ -26,6 +26,8 @@ EXPERIENCE
 - Project Manager (Feb 2025 – Feb 2026) at Addis Ababa University — led the Fleet Management System project, replacing manual vehicle logging with an automated platform. Improved fleet utilization, cut unauthorized use, reduced downtime via maintenance-alert integration, and delivered on time and on budget with full SOPs and documentation.
 
 PROJECTS
+- Emarosh Residence (https://emarosh.vercel.app) — a cinematic 3D scrolling experience for a luxury residence; brutalist architecture meets biophilic serenity across five levels. Open it and see the magic in the scroll.
+- AURUM Mouse (https://aurum-opal-nu.vercel.app/) — a cinematic luxury product showcase for an artisan gaming mouse; hand-finished American Walnut meets aerospace metallurgy with esports-grade optical precision.
 - Fleet Management System (AAU) — React + Node.js + MySQL; full digital transformation of AAU transport.
 - kheyrukum.com — Designed and built the Kheyrukum website; a polished digital presence that tells its story.
 - kheyrukumportal.vercel.app — A portal where teachers and parents meet to track students' learning patterns, progress, and daily behavior in a collaborative dashboard.

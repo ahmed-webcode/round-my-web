@@ -8,6 +8,7 @@ const mooncakesAsset = { url: "/projects/mooncakes.png" };
 const mosqikilAsset = { url: "/projects/mosqikil.png" };
 const cbeAsset = { url: "/projects/cbehero.png" };
 const emaroshAsset = { url: "/projects/emarosh.png" };
+const aurumAsset = { url: "/projects/aurum.png" };
 
 const PROJECTS = [
   {
@@ -19,6 +20,16 @@ const PROJECTS = [
     title: "Emarosh Residence",
     desc: "A cinematic 3D scrolling experience for a luxury residence — brutalist architecture meets biophilic serenity. Scroll through five levels of cantilevered volumes, thermal teak, and bronze louvers. Open it and see the magic in the scroll.",
     link: "https://emarosh.vercel.app",
+  },
+  {
+    icon: null,
+    image: aurumAsset.url,
+    gradient: "linear-gradient(135deg, oklch(0.18 0.02 75), oklch(0.55 0.12 75))",
+    ambient: ["oklch(0.5 0.14 75)", "oklch(0.3 0.04 50)"],
+    tags: ["3D", "Luxury", "Product", "Scroll"],
+    title: "AURUM Mouse",
+    desc: "A cinematic luxury product showcase for an artisan gaming mouse — hand-finished American Walnut meets aerospace metallurgy. Scroll through acts of organic mastery with esports-grade optical precision.",
+    link: "https://aurum-opal-nu.vercel.app/",
   },
   {
     icon: Truck,
