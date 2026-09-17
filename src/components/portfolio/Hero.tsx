@@ -91,11 +91,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 opacity-0 [animation:fadeInUp_0.8s_ease_forwards_1.2s] sm:flex">
-        <div className="anim-scroll relative h-10 w-6 rounded-xl border-2 border-dim before:absolute before:left-1/2 before:top-2 before:h-2 before:w-1 before:-translate-x-1/2 before:rounded before:bg-primary before:content-['']" />
-        <span className="text-xs uppercase tracking-[0.2em] text-dim">Scroll</span>
-      </div>
     </section>
   );
 }
