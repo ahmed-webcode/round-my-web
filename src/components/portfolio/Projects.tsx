@@ -22,6 +22,16 @@ const PROJECTS = [
     link: "https://emarosh.vercel.app",
   },
   {
+    icon: null,
+    image: aurumAsset.url,
+    gradient: "linear-gradient(135deg, oklch(0.18 0.02 75), oklch(0.55 0.12 75))",
+    ambient: ["oklch(0.5 0.14 75)", "oklch(0.3 0.04 50)"],
+    tags: ["3D", "Luxury", "Product", "Scroll"],
+    title: "AURUM Mouse",
+    desc: "A cinematic luxury product showcase for an artisan gaming mouse — hand-finished American Walnut meets aerospace metallurgy. Scroll through acts of organic mastery with esports-grade optical precision.",
+    link: "https://aurum-opal-nu.vercel.app/",
+  },
+  {
     icon: Truck,
     image: null as string | null,
     gradient: "var(--gradient-primary)",
