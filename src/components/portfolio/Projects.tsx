@@ -8,6 +8,7 @@ const mooncakesAsset = { url: "/projects/mooncakes.png" };
 const mosqikilAsset = { url: "/projects/mosqikil.png" };
 const cbeAsset = { url: "/projects/cbehero.png" };
 const emaroshAsset = { url: "/projects/emarosh.png" };
+const aurumAsset = { url: "/projects/aurum.png" };
 
 const PROJECTS = [
   {
