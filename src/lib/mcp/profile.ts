@@ -48,15 +48,16 @@ export const profile = {
       url: "https://emarosh.vercel.app",
       stack: ["React", "3D", "Scroll animation"],
       description:
-        "A cinematic 3D scrolling experience for a luxury residence — brutalist architecture meets biophilic serenity across five levels. Open it and see the magic in the scroll.",
+        "Ultra-luxury architectural living site told as a cinematic ~300-frame scroll story: the monolith facade (474 m², 5 levels, 3.2 m ceilings, travertine and bronze louvers), a zero-threshold acoustic-glass terrace, curated walnut-and-marble interiors, a master wellness suite, and a rooftop sky crown with a 12 kWp solar pergola — plus blueprints, specifications and a schedule-viewing flow. Open it and see the magic in the scroll.",
     },
     {
       name: "AURUM Mouse",
       url: "https://aurum-opal-nu.vercel.app/",
       stack: ["React", "3D", "Luxury product"],
       description:
-        "A cinematic luxury product showcase for an artisan gaming mouse — hand-finished American Walnut meets aerospace metallurgy with esports-grade optical precision.",
+        "Mastercrafted artisan technology showcase in five acts with a scroll-driven render sequence: the 63 g walnut-and-rose-alloy mouse (26,000 DPI PixArt PAW3395, 0.12 ms actuation, 8,000 Hz polling), an interactive CAD teardown, a gasket-mounted walnut keyboard, beryllium-tweeter studio monitors, and a bespoke configurator with Reserve Edition No. 001.",
     },
+
     {
       name: "Fleet Management System (AAU)",
       url: null as string | null,
