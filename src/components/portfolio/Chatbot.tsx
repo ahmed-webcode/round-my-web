@@ -47,6 +47,19 @@ export function Chatbot() {
     setHydrated(true);
   }, [setMessages]);
 
+  // One automatic, delayed retry for brief connection drops (e.g. mobile network switches).
+  const autoRetried = useRef(false);
+  useEffect(() => {
+    if (status === "ready") autoRetried.current = false;
+    if (!error || autoRetried.current) return;
+    autoRetried.current = true;
+    const t = window.setTimeout(() => {
+      clearError();
+      regenerate();
+    }, 1500);
+    return () => window.clearTimeout(t);
+  }, [error, status, clearError, regenerate]);
+
   const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
@@ -173,9 +186,9 @@ export function Chatbot() {
               );
             })}
 
-            {error && (
+            {error && autoRetried.current && status !== "submitted" && (
               <div role="alert" className="rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-xs text-foreground">
-                <p>Sorry, the reply couldn't load. Check your connection and try again.</p>
+                <p>The reply didn't come through. Tap Retry to try again.</p>
                 <button type="button" onClick={() => { clearError(); regenerate(); }} className="mt-2 font-semibold text-primary underline">
                   Retry
                 </button>
