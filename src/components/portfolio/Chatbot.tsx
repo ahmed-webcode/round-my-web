@@ -11,7 +11,13 @@ function loadStoredMessages(): UIMessage[] {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as UIMessage[]) : [];
+    if (!Array.isArray(parsed)) return [];
+    // Drop malformed or empty assistant turns left by interrupted streams.
+    return (parsed as UIMessage[]).filter(
+      (m) =>
+        m && Array.isArray(m.parts) &&
+        (m.role === "user" || m.parts.some((p) => p.type === "text" && p.text)),
+    );
   } catch {
     return [];
   }
@@ -27,14 +33,19 @@ const SUGGESTIONS = [
 export function Chatbot() {
   const [open, setOpen] = useState(false);
   const transport = useMemo(() => new DefaultChatTransport({ api: "/api/chat" }), []);
-  const initialMessages = useMemo(() => loadStoredMessages(), []);
-  const { messages, sendMessage, status, setMessages } = useChat({
+    const { messages, sendMessage, status, setMessages, error, regenerate, clearError } = useChat({
     transport,
-    messages: initialMessages,
   });
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    const stored = loadStoredMessages();
+    if (stored.length) setMessages(stored);
+    setHydrated(true);
+  }, [setMessages]);
 
   const busy = status === "submitted" || status === "streaming";
 
@@ -47,7 +58,7 @@ export function Chatbot() {
   }, [messages, status]);
 
   useEffect(() => {
-    if (typeof window === "undefined" || status === "streaming" || status === "submitted") return;
+    if (typeof window === "undefined" || !hydrated || status === "streaming" || status === "submitted") return;
     try {
       if (messages.length === 0) {
         window.localStorage.removeItem(STORAGE_KEY);
@@ -57,7 +68,7 @@ export function Chatbot() {
     } catch {
       // ignore quota/serialization errors
     }
-  }, [messages, status]);
+  }, [messages, status, hydrated]);
 
   const clearHistory = () => {
     setMessages([]);
@@ -73,6 +84,7 @@ export function Chatbot() {
   const submit = (text: string) => {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
+    if (error) clearError();
     sendMessage({ text: trimmed });
     setInput("");
   };
@@ -89,7 +101,7 @@ export function Chatbot() {
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-4 z-50 flex h-[min(600px,calc(100vh-8rem))] w-[calc(100vw-2rem)] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:right-6">
+        <div className="fixed inset-x-2 bottom-[5.5rem] top-[max(0.5rem,env(safe-area-inset-top))] z-50 flex flex-col sm:inset-x-auto sm:top-auto sm:h-[min(600px,calc(100dvh-8rem))] sm:w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:right-6">
           <div className="flex items-center gap-3 border-b border-border bg-gradient-primary/10 p-4">
             <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary text-sm font-bold text-white">
               A
@@ -161,6 +173,15 @@ export function Chatbot() {
               );
             })}
 
+            {error && (
+              <div role="alert" className="rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-xs text-foreground">
+                <p>Sorry, the reply couldn't load. Check your connection and try again.</p>
+                <button type="button" onClick={() => { clearError(); regenerate(); }} className="mt-2 font-semibold text-primary underline">
+                  Retry
+                </button>
+              </div>
+            )}
+
             {status === "submitted" && (
               <div className="flex justify-start">
                 <div className="rounded-2xl rounded-bl-sm bg-white/5 px-4 py-2.5 text-sm">
@@ -186,7 +207,7 @@ export function Chatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about Ahmed..."
-              className="flex-1 rounded-full border border-border bg-background px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-primary"
+              className="flex-1 rounded-full border border-border bg-background px-4 py-2 text-base outline-none sm:text-sm placeholder:text-muted-foreground focus:border-primary"
             />
             <button
               type="submit"
