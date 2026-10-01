@@ -101,7 +101,7 @@ export function Chatbot() {
       </button>
 
       {open && (
-        <div className="fixed inset-x-2 bottom-[5.5rem] top-[max(0.5rem,env(safe-area-inset-top))] z-50 flex max-h-[600px] flex-col sm:inset-x-auto sm:top-auto sm:h-[min(600px,calc(100dvh-8rem))] sm:w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:right-6">
+        <div className="fixed inset-x-2 bottom-[5.5rem] top-[max(0.5rem,env(safe-area-inset-top))] z-50 flex flex-col sm:inset-x-auto sm:top-auto sm:h-[min(600px,calc(100dvh-8rem))] sm:w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:right-6">
           <div className="flex items-center gap-3 border-b border-border bg-gradient-primary/10 p-4">
             <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary text-sm font-bold text-white">
               A
