@@ -70,27 +70,36 @@ RULES
 
 type ChatRequestBody = { messages?: unknown };
 
+// Allows copies of the site hosted elsewhere (e.g. Vercel) to use this chat endpoint.
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+const fail = (msg: string, status: number) => new Response(msg, { status, headers: CORS });
+
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: CORS }),
       POST: async ({ request }) => {
         let messages: unknown;
         try {
           ({ messages } = (await request.json()) as ChatRequestBody);
         } catch {
-          return new Response("Invalid request body", { status: 400 });
+          return fail("Invalid request body", 400);
         }
         if (!Array.isArray(messages)) {
-          return new Response("Messages are required", { status: 400 });
+          return fail("Messages are required", 400);
         }
 
         const key = process.env.LOVABLE_API_KEY;
         if (!key) {
-          return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          return fail("Missing LOVABLE_API_KEY", 500);
         }
 
         try {
-          // Keep only the recent conversation so long histories stay fast.
           const recent = (messages as UIMessage[]).slice(-20);
           const gateway = createLovableAiGatewayProvider(key);
           const result = streamText({
@@ -101,11 +110,12 @@ export const Route = createFileRoute("/api/chat")({
           });
 
           return result.toUIMessageStreamResponse({
+            headers: CORS,
             onError: () => "Sorry, I couldn't finish that reply. Please try again.",
           });
         } catch (error) {
           console.error("[AhmedBot] request failed", error);
-          return new Response("The assistant is temporarily unavailable.", { status: 500 });
+          return fail("The assistant is temporarily unavailable.", 500);
         }
       },
     },
