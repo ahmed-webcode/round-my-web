@@ -55,10 +55,13 @@ async function resilientFetch(input: RequestInfo | URL, init?: RequestInit): Pro
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  const transport = useMemo(
-    () => new DefaultChatTransport({ api: "/api/chat", fetch: resilientFetch }),
-    [],
-  );
+  const transport = useMemo(() => {
+    // Copies hosted outside Lovable (e.g. Vercel) have no AI key, so they use the Lovable-hosted bot.
+    const host = typeof window === "undefined" ? "" : window.location.hostname;
+    const local = !host || host === "localhost" || host.endsWith(".lovable.app") || host.endsWith(".lovableproject.com");
+    const api = local ? "/api/chat" : "https://ahmedms.lovable.app/api/chat";
+    return new DefaultChatTransport({ api, fetch: resilientFetch });
+  }, []);
     const { messages, sendMessage, status, setMessages, error, regenerate, clearError } = useChat({
     transport,
     onError: (err) => console.error("[AhmedBot] chat error", err),
