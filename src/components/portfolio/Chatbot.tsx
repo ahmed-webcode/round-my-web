@@ -30,11 +30,38 @@ const SUGGESTIONS = [
   "What projects has he built?",
 ];
 
+// Retries only when the request never reached the AI (network drop or server
+// restart), so a retry can't double-charge. Up to 3 attempts with backoff.
+async function resilientFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 800 * 2 ** (attempt - 1)));
+    if (init?.signal?.aborted) throw new DOMException("Aborted", "AbortError");
+    try {
+      const res = await fetch(input, init);
+      if (res.status === 502 || res.status === 503 || res.status === 504) {
+        lastError = new Error(`Server unavailable (${res.status})`);
+        continue;
+      }
+      return res;
+    } catch (err) {
+      if ((err as Error)?.name === "AbortError") throw err;
+      lastError = err;
+      console.error("[AhmedBot] request failed, attempt", attempt + 1, err);
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error("Network error");
+}
+
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  const transport = useMemo(() => new DefaultChatTransport({ api: "/api/chat" }), []);
+  const transport = useMemo(
+    () => new DefaultChatTransport({ api: "/api/chat", fetch: resilientFetch }),
+    [],
+  );
     const { messages, sendMessage, status, setMessages, error, regenerate, clearError } = useChat({
     transport,
+    onError: (err) => console.error("[AhmedBot] chat error", err),
   });
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -46,19 +73,6 @@ export function Chatbot() {
     if (stored.length) setMessages(stored);
     setHydrated(true);
   }, [setMessages]);
-
-  // One automatic, delayed retry for brief connection drops (e.g. mobile network switches).
-  const autoRetried = useRef(false);
-  useEffect(() => {
-    if (status === "ready") autoRetried.current = false;
-    if (!error || autoRetried.current) return;
-    autoRetried.current = true;
-    const t = window.setTimeout(() => {
-      clearError();
-      regenerate();
-    }, 1500);
-    return () => window.clearTimeout(t);
-  }, [error, status, clearError, regenerate]);
 
   const busy = status === "submitted" || status === "streaming";
 
@@ -186,9 +200,10 @@ export function Chatbot() {
               );
             })}
 
-            {error && autoRetried.current && status !== "submitted" && (
+            {error && (
               <div role="alert" className="rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-xs text-foreground">
                 <p>The reply didn't come through. Tap Retry to try again.</p>
+                <p className="mt-1 text-muted-foreground">{error.message.slice(0, 160)}</p>
                 <button type="button" onClick={() => { clearError(); regenerate(); }} className="mt-2 font-semibold text-primary underline">
                   Retry
                 </button>
