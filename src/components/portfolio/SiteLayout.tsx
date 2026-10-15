@@ -5,6 +5,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Contact";
 import { Chatbot } from "./Chatbot";
 import { PROJECT_BACKGROUNDS } from "./Projects";
+import { Preloader } from "./Preloader";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
@@ -75,6 +76,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <Footer immersive={immersive} />
       </div>
       <Chatbot />
+      <Preloader />
     </div>
   );
 }
