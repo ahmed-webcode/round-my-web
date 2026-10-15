@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { brandingIntroPath, brandingIntroUrl, brandingLogoUrl } from "@/lib/branding-assets";
+import { brandingIntroPath, brandingIntroUrl, brandingIntroMp4Path, brandingIntroMp4Url, brandingLogoUrl } from "@/lib/branding-assets";
 
 export function Preloader() {
   const [phase, setPhase] = useState<"playing" | "leaving" | "done">("playing");
   const [started, setStarted] = useState(false);
   const [source, setSource] = useState<string>();
+  const [mp4Source, setMp4Source] = useState<string>();
   const finish = useCallback(() => {
     setPhase((current) => current === "playing" ? "leaving" : current);
   }, []);
@@ -18,6 +19,7 @@ export function Preloader() {
     }
     const host = window.location.hostname;
     setSource(host === "localhost" || host.endsWith(".lovable.app") ? brandingIntroPath : brandingIntroUrl);
+    setMp4Source(host === "localhost" || host.endsWith(".lovable.app") ? brandingIntroMp4Path : brandingIntroMp4Url);
     const timeout = window.setTimeout(finish, 7000);
     return () => window.clearTimeout(timeout);
   }, [finish]);
@@ -49,8 +51,7 @@ export function Preloader() {
         aria-hidden="true"
         className={`absolute w-56 max-w-[70%] object-contain transition-opacity duration-300 ${started ? "opacity-0" : "opacity-100"}`}
       />
-      <video
-        src={source}
+      {source && <video
         autoPlay
         muted
         playsInline
@@ -63,7 +64,10 @@ export function Preloader() {
         onEnded={finish}
         onError={finish}
         className={`brand-intro-animation pointer-events-none w-[120%] max-w-none object-contain transition-opacity duration-300 sm:w-full sm:max-w-6xl ${started ? "opacity-100" : "opacity-0"}`}
-      />
+      >
+        <source src={source} type="video/webm" />
+        <source src={mp4Source} type="video/mp4" />
+      </video>}
       <Button
         variant="ghost"
         size="icon"
