@@ -1,0 +1,2 @@
+- [ ] Add the uploaded logo animation as a seamless, bounded opening preloader.
+- [ ] Make branding assets resolve on Vercel and verify the opening-to-home flow.
