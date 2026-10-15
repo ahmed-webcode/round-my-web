@@ -2,6 +2,12 @@ import { SectionHeader } from "./SectionHeader";
 
 const EDU = [
   {
+    title: "Master’s in Artificial Intelligence",
+    school: "",
+    date: "",
+    status: "Currently Learning",
+  },
+  {
     title: "BS Software Engineering",
     school: "Addis Ababa University",
     date: "Aug 2021 – Aug 2026",
@@ -40,7 +46,7 @@ export function Education() {
           <SectionHeader
             label="Education"
             title="Academic Background"
-            subtitle="Dual degrees combining technology and language"
+            subtitle="Technology, language, and ongoing studies in artificial intelligence"
           />
           <div className="grid gap-6 sm:grid-cols-2">
             {EDU.map((e) => (
@@ -51,14 +57,14 @@ export function Education() {
                 <span className="absolute inset-y-0 left-0 w-1 bg-gradient-primary" />
                 <div className="mb-2 flex items-start justify-between gap-3">
                   <h3 className="text-lg font-semibold">{e.title}</h3>
-                  <span className="shrink-0 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1 text-xs font-semibold text-green-400">
+                  <span className="shrink-0 rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
                     {e.status}
                   </span>
                 </div>
-                <p className="mb-1 text-muted-foreground">{e.school}</p>
-                <p className="font-mono-x text-sm font-semibold text-primary">
+                {e.school && <p className="mb-1 text-muted-foreground">{e.school}</p>}
+                {e.date && <p className="font-mono-x text-sm font-semibold text-primary">
                   {e.date}
-                </p>
+                </p>}
               </div>
             ))}
           </div>

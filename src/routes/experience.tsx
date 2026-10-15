@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/components/portfolio/hooks";
 
 const TITLE = "Experience — Ahmed Muhammed Seid, Project Manager Ethiopia";
 const DESC =
-  "Professional experience of Ahmed Muhammed Seid, including leading the Fleet Management System project at Addis Ababa University.";
+  "Ahmed Muhammed Seid's experience: Intern Frontend Developer at KIFIYA Financial Technologies since September 2026 and Project Manager for Addis Ababa University's Fleet Management System.";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
