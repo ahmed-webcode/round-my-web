@@ -9,6 +9,8 @@ const DESC =
 export const Route = createFileRoute("/education")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: TITLE },
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },

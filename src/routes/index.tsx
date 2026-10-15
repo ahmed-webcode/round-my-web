@@ -9,6 +9,9 @@ import { useScrollReveal } from "@/components/portfolio/hooks";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { title: "Ahmed Muhammed Seid | Front End Developer & Software Engineer" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "description",
         content:
