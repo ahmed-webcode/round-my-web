@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Keep the header logo in a CDN asset pointer and derive shared branding through global semantic CSS tokens, so navigation and page colors stay consistent.
+- Resolve branding media from their CDN pointers against the published Lovable asset origin, because relative asset-serving paths do not exist on Vercel.
+- Mount the opening animation once in the shared site layout with muted inline playback, reduced-motion bypass, and a bounded timeout, so navigation never replays it and media failures cannot block the portfolio.

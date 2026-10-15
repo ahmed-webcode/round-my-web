@@ -48,6 +48,7 @@
   --color-project-surface: var(--project-surface);
   --color-project-inverse: var(--project-inverse);
   --color-project-fallback: var(--project-fallback);
+  --color-intro-background: var(--intro-background);
 
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -58,6 +59,7 @@
 
   /* Gold artwork on neutral charcoal */
   --background: #171819;
+  --intro-background: #181717;
   --bg-light: #1e2021;
   --foreground: #f5f3ed;
   --card: #242627;
@@ -187,6 +189,16 @@ html.projects-scroll body {
 }
 
 /* ===== Animations ===== */
+.brand-intro-animation {
+  mask-image: radial-gradient(ellipse closest-side, black 72%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-intro {
+    display: none;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

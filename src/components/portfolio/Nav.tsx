@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/ahmed-logo.png.asset.json";
+import { brandingLogoUrl } from "@/lib/branding-assets";
 
 const LINKS = [
   { to: "/", label: "Home" },
@@ -44,7 +44,7 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" aria-label="Ahmed Muhammed Seid — Home" className="flex h-14 w-24 shrink-0 items-center sm:w-28">
-          <img src={logoAsset.url} alt="Ahmed Muhammed Seid logo" className="h-full w-full object-contain" width={112} height={62} fetchPriority="high" />
+          <img src={brandingLogoUrl} alt="Ahmed Muhammed Seid logo" className="h-full w-full object-contain" width={112} height={62} fetchPriority="high" />
         </Link>
 
         <ul className="hidden items-center gap-6 lg:flex">
