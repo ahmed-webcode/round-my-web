@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/ahmed-logo.png.asset.json";
 
 const LINKS = [
   { to: "/", label: "Home" },
@@ -41,12 +43,11 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link to="/" className="font-mono-x text-lg font-semibold sm:text-xl">
-          <span className="text-primary">&lt;</span>Ahmed
-          <span className="text-primary">/&gt;</span>
+        <Link to="/" aria-label="Ahmed Muhammed Seid — Home" className="flex h-14 w-24 shrink-0 items-center sm:w-28">
+          <img src={logoAsset.url} alt="Ahmed Muhammed Seid logo" className="h-full w-full object-contain" width={112} height={62} fetchPriority="high" />
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {LINKS.map((l) => (
             <li key={l.to}>
               <Link
@@ -72,22 +73,24 @@ export function Nav({ immersive = false }: { immersive?: boolean }) {
           >
             Hire Me
           </Link>
-          <button
+          <Button
+            variant="outline"
+            size="icon"
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-             className={`grid h-10 w-10 place-items-center rounded-lg border md:hidden ${immersive ? "border-project-line bg-project-surface text-project-foreground backdrop-blur-md" : "border-border text-foreground"}`}
+             className={`grid h-10 w-10 place-items-center rounded-lg border lg:hidden ${immersive ? "border-project-line bg-project-surface text-project-foreground backdrop-blur-md" : "border-border text-foreground"}`}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-border bg-background/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
-          open ? "max-h-96 border-b" : "max-h-0"
+        className={`overflow-hidden border-border bg-background/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${
+          open ? "max-h-[calc(100dvh-6rem)] overflow-y-auto border-b" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">

@@ -88,16 +88,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Ahmed Muhammed Seid" },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        property: "og:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/79c7b806-9b98-4b10-be69-abb92e6239d1",
-      },
     ],
     scripts: [
       {

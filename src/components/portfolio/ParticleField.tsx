@@ -30,7 +30,8 @@ export function ParticleField() {
     );
 
     type P = { x: number; y: number; sx: number; sy: number; s: number; c: string };
-    const colors = ["233, 69, 96", "150, 90, 220", "80, 110, 200"];
+    const theme = getComputedStyle(canvas);
+    const colors = ["--particle-gold", "--particle-silver", "--particle-light"].map((token) => theme.getPropertyValue(token).trim());
     const particles: P[] = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -74,7 +75,7 @@ export function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(233, 69, 96, ${0.12 * (1 - d / 110)})`;
+            ctx.strokeStyle = `rgba(${colors[0]}, ${0.08 * (1 - d / 110)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
