@@ -26,6 +26,27 @@ export function Experience() {
           subtitle="My career in software development and project management"
         />
 
+        <article className="reveal relative mb-8 overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-10">
+          <span className="absolute inset-x-0 top-0 h-1 bg-gradient-primary" />
+          <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+            <div className="flex min-w-0 items-start gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary/15 text-primary">
+                <Briefcase className="h-6 w-6" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-2xl font-semibold sm:text-3xl">Intern Frontend Developer</h3>
+                <p className="mt-1 text-sm text-muted-foreground sm:text-base">KIFIYA Financial Technologies</p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary sm:text-sm">
+                  <Clock className="h-3.5 w-3.5" /> Current position
+                </span>
+              </div>
+            </div>
+            <span className="font-mono-x w-fit shrink-0 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
+              Sep 2026 – Present
+            </span>
+          </div>
+        </article>
+
         <article className="reveal relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-10">
           <span className="absolute inset-x-0 top-0 h-1 bg-gradient-primary" />
           <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">

@@ -1,2 +1,5 @@
 - [x] Add the uploaded logo animation as a seamless, bounded opening preloader.
 - [x] Make branding assets resolve on Vercel and verify the opening-to-home flow.
+- [ ] Add ongoing AI master's studies to Education.
+- [ ] Add current KIFIYA frontend internship starting September 2026 to Experience.
+- [ ] Update AhmedBot and public profile with the new career details and verify them.

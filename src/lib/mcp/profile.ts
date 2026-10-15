@@ -29,7 +29,31 @@ export const profile = {
       "Digital transformation",
     ],
   } as Record<string, string[]>,
+  education: [
+    {
+      degree: "Master’s in Artificial Intelligence",
+      status: "Currently Learning",
+    },
+    {
+      degree: "BS Software Engineering",
+      institution: "Addis Ababa University",
+      period: "Aug 2021 – Aug 2026",
+      status: "Graduated",
+    },
+    {
+      degree: "BS Arabic Language",
+      institution: "Addis Ababa University",
+      period: "Aug 2021 – Aug 2026",
+      status: "Graduated",
+    },
+  ],
   experience: [
+    {
+      role: "Intern Frontend Developer",
+      organization: "KIFIYA Financial Technologies",
+      period: "Sep 2026 – Present",
+      highlights: ["Currently working as an Intern Frontend Developer."],
+    },
     {
       role: "Project Manager",
       organization: "Addis Ababa University",
