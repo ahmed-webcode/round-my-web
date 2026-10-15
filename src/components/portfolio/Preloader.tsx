@@ -63,7 +63,7 @@ export function Preloader() {
         onPlaying={() => setStarted(true)}
         onEnded={finish}
         onError={finish}
-        className={`brand-intro-animation pointer-events-none w-[120%] max-w-none object-contain transition-opacity duration-300 sm:w-full sm:max-w-6xl ${started ? "opacity-100" : "opacity-0"}`}
+        className={`brand-intro-animation pointer-events-none w-full max-w-6xl object-contain transition-opacity duration-300 ${started ? "opacity-100" : "opacity-0"}`}
       >
         <source src={source} type="video/webm" />
         <source src={mp4Source} type="video/mp4" />
