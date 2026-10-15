@@ -20,16 +20,11 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 pb-16 pt-28 sm:pt-32">
-      {/* floating blobs */}
-      <div className="anim-blob pointer-events-none absolute -right-24 -top-24 z-0 h-80 w-80 rounded-full bg-primary/30 blur-[90px]" />
-      <div className="anim-blob pointer-events-none absolute -bottom-16 -left-24 z-0 h-72 w-72 rounded-full bg-accent/30 blur-[90px] [animation-delay:2s]" />
-      <div className="anim-blob pointer-events-none absolute left-1/2 top-1/2 z-0 h-56 w-56 rounded-full bg-secondary/20 blur-[90px] [animation-delay:4s]" />
-
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         {/* Circular photo */}
         <div className="mx-auto mb-8 w-fit [animation:fadeInUp_0.8s_ease_forwards]">
           <div className="anim-float relative mx-auto grid place-items-center">
-            <div className="anim-ring-spin absolute inset-0 rounded-full bg-gradient-tri opacity-70 blur-[2px]" />
+            <div className="absolute inset-0 rounded-full bg-gradient-tri opacity-70" />
             <div className="relative rounded-full bg-background p-1.5">
               <img
                 src={ahmedAsset.url}
