@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { brandingIntroUrl, brandingLogoUrl } from "@/lib/branding-assets";
+import { brandingIntroPath, brandingIntroUrl, brandingLogoUrl } from "@/lib/branding-assets";
 
 export function Preloader() {
   const [phase, setPhase] = useState<"playing" | "leaving" | "done">("playing");
   const [started, setStarted] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [source, setSource] = useState<string>();
   const finish = useCallback(() => {
     setPhase((current) => current === "playing" ? "leaving" : current);
   }, []);
@@ -16,8 +16,9 @@ export function Preloader() {
       setPhase("done");
       return;
     }
+    const host = window.location.hostname;
+    setSource(host === "localhost" || host.endsWith(".lovable.app") ? brandingIntroPath : brandingIntroUrl);
     const timeout = window.setTimeout(finish, 7000);
-    videoRef.current?.play().catch(finish);
     return () => window.clearTimeout(timeout);
   }, [finish]);
 
@@ -49,8 +50,7 @@ export function Preloader() {
         className={`absolute w-56 max-w-[70%] object-contain transition-opacity duration-300 ${started ? "opacity-0" : "opacity-100"}`}
       />
       <video
-        ref={videoRef}
-        src={brandingIntroUrl}
+        src={source}
         autoPlay
         muted
         playsInline

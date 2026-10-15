@@ -5,3 +5,4 @@ import introAsset from "@/assets/logo-intro.mp4.asset.json";
 const assetOrigin = "https://ahmedms.lovable.app";
 export const brandingLogoUrl = new URL(logoAsset.url, assetOrigin).href;
 export const brandingIntroUrl = new URL(introAsset.url, assetOrigin).href;
+export const brandingIntroPath = introAsset.url;
