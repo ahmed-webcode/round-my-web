@@ -1,11 +1,22 @@
 import { SectionHeader } from "./SectionHeader";
 
-const EDU = [
+type EduItem = {
+  title: string;
+  school: string;
+  date: string;
+  status: string;
+  note?: string;
+  featured?: boolean;
+};
+
+const EDU: EduItem[] = [
   {
     title: "Master’s in Artificial Intelligence",
     school: "",
     date: "",
     status: "Currently Learning",
+    note: "Graduate studies in artificial intelligence, currently in progress.",
+    featured: true,
   },
   {
     title: "BS Software Engineering",
@@ -52,7 +63,9 @@ export function Education() {
             {EDU.map((e) => (
               <div
                 key={e.title}
-                className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-card)]"
+                className={`relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-card)] ${
+                  e.featured ? "sm:col-span-2" : ""
+                }`}
               >
                 <span className="absolute inset-y-0 left-0 w-1 bg-gradient-primary" />
                 <div className="mb-2 flex items-start justify-between gap-3">
@@ -65,6 +78,7 @@ export function Education() {
                 {e.date && <p className="font-mono-x text-sm font-semibold text-primary">
                   {e.date}
                 </p>}
+                {e.note && <p className="text-sm text-muted-foreground">{e.note}</p>}
               </div>
             ))}
           </div>
