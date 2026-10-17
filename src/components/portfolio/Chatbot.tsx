@@ -191,7 +191,7 @@ export function Chatbot() {
                         : "rounded-bl-sm bg-white/5 text-foreground"
                     }`}
                   >
-                    {text || (
+                    {text ? renderRich(text) : (
                       <span className="inline-flex gap-1">
                         <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.3s]" />
                         <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.15s]" />
