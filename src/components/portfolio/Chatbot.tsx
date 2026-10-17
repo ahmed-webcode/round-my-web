@@ -1,7 +1,7 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
 import { MessageCircle, Send, Trash2, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 const STORAGE_KEY = "ahmedbot:messages:v1";
 
@@ -29,6 +29,36 @@ const SUGGESTIONS = [
   "Is he available for hire?",
   "What projects has he built?",
 ];
+
+// Replies arrive as plain text with light markdown. Render emphasis as real
+// formatting instead of showing raw asterisks to the visitor.
+function renderRich(text: string): ReactNode {
+  const clean = text
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[([^\]]+)\]\((?:https?:\/\/[^\s)]+)\)/g, "$1");
+  const nodes: ReactNode[] = [];
+  let last = 0;
+  let key = 0;
+  for (const match of clean.matchAll(/(\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g)) {
+    const at = match.index ?? 0;
+    if (at > last) nodes.push(clean.slice(last, at));
+    const token = match[0];
+    const body = token.slice(1, -1);
+    nodes.push(
+      token.startsWith("**") ? (
+        <strong key={key++} className="font-semibold">
+          {body}
+        </strong>
+      ) : (
+        <em key={key++}>{body}</em>
+      ),
+    );
+    last = at + token.length;
+  }
+  if (last < clean.length) nodes.push(clean.slice(last));
+  return nodes.length ? nodes : clean;
+}
 
 // Retries only when the request never reached the AI (network drop or server
 // restart), so a retry can't double-charge. Up to 3 attempts with backoff.
