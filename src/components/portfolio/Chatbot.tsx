@@ -44,9 +44,10 @@ function renderRich(text: string): ReactNode {
     const at = match.index ?? 0;
     if (at > last) nodes.push(clean.slice(last, at));
     const token = match[0];
-    const body = token.slice(1, -1);
+    const bold = token.startsWith("**");
+    const body = bold ? token.slice(2, -2) : token.slice(1, -1);
     nodes.push(
-      token.startsWith("**") ? (
+      bold ? (
         <strong key={key++} className="font-semibold">
           {body}
         </strong>
