@@ -31,7 +31,7 @@ export const profile = {
   } as Record<string, string[]>,
   education: [
     {
-      degree: "Master’s in Artificial Intelligence",
+      degree: "Master of Science in Artificial Intelligence",
       status: "Currently Learning",
     },
     {

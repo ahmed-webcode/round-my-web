@@ -11,7 +11,7 @@ type EduItem = {
 
 const EDU: EduItem[] = [
   {
-    title: "Master’s in Artificial Intelligence",
+    title: "Master of Science in Artificial Intelligence",
     school: "",
     date: "",
     status: "Currently Learning",
@@ -55,6 +55,7 @@ const CERTS = [
   "Introduction to Software Engineering — Coursera",
   "Introduction to Git and GitHub — Coursera",
   "Supervised Machine Learning — Coursera",
+  "Frontier Tech Leaders Programme, Project-Based Training — UNDP ICPSD, UN Technology Bank & SDG AI Lab",
 ];
 
 export function Education() {
