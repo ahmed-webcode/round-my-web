@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { brandingIntroPath, brandingIntroUrl, brandingIntroMp4Path, brandingIntroMp4Url, brandingLogoUrl } from "@/lib/branding-assets";
 
 export function Preloader() {
@@ -68,16 +66,6 @@ export function Preloader() {
         <source src={source} type="video/webm" />
         <source src={mp4Source} type="video/mp4" />
       </video>}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={finish}
-        title="Skip opening animation"
-        aria-label="Skip opening animation"
-        className="absolute bottom-8 right-6 text-primary hover:bg-primary/10 hover:text-primary"
-      >
-        <ArrowRight size={20} />
-      </Button>
     </div>
   );
 }
