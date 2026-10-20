@@ -19,13 +19,21 @@ const EDU: EduItem[] = [
     featured: true,
   },
   {
+    title: "MA in Project Management",
+    school: "",
+    date: "",
+    status: "Currently Learning",
+    note: "Graduate studies in project management, currently in progress.",
+    featured: true,
+  },
+  {
     title: "BS Software Engineering",
     school: "Addis Ababa University",
     date: "Aug 2021 – Aug 2026",
     status: "Graduated",
   },
   {
-    title: "BS Arabic Language",
+    title: "BA in Arabic Language and Communication",
     school: "Addis Ababa University",
     date: "Aug 2021 – Aug 2026",
     status: "Graduated",
@@ -57,7 +65,7 @@ export function Education() {
           <SectionHeader
             label="Education"
             title="Academic Background"
-            subtitle="Technology, language, and ongoing studies in artificial intelligence"
+            subtitle="Technology, language, and ongoing graduate studies in artificial intelligence and project management"
           />
           <div className="grid gap-6 sm:grid-cols-2">
             {EDU.map((e) => (
