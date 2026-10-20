@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/components/portfolio/hooks";
 
 const TITLE = "Education & Languages — Ahmed Muhammed Seid";
 const DESC =
-  "Ahmed Muhammed Seid is currently studying for a master's in Artificial Intelligence, with degrees in Software Engineering and Arabic Language from Addis Ababa University.";
+  "Ahmed Muhammed Seid is currently pursuing a master's in Artificial Intelligence and an MA in Project Management, with a BS in Software Engineering and a BA in Arabic Language and Communication from Addis Ababa University.";
 
 export const Route = createFileRoute("/education")({
   head: () => ({

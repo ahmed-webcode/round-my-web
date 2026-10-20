@@ -19,13 +19,21 @@ const EDU: EduItem[] = [
     featured: true,
   },
   {
+    title: "MA in Project Management",
+    school: "",
+    date: "",
+    status: "Currently Learning",
+    note: "Graduate studies in project management, currently in progress.",
+    featured: true,
+  },
+  {
     title: "BS Software Engineering",
     school: "Addis Ababa University",
     date: "Aug 2021 – Aug 2026",
     status: "Graduated",
   },
   {
-    title: "BS Arabic Language",
+    title: "BA in Arabic Language and Communication",
     school: "Addis Ababa University",
     date: "Aug 2021 – Aug 2026",
     status: "Graduated",

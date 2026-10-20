@@ -35,13 +35,17 @@ export const profile = {
       status: "Currently Learning",
     },
     {
+      degree: "MA in Project Management",
+      status: "Currently Learning",
+    },
+    {
       degree: "BS Software Engineering",
       institution: "Addis Ababa University",
       period: "Aug 2021 – Aug 2026",
       status: "Graduated",
     },
     {
-      degree: "BS Arabic Language",
+      degree: "BA in Arabic Language and Communication",
       institution: "Addis Ababa University",
       period: "Aug 2021 – Aug 2026",
       status: "Graduated",
