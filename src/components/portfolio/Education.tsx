@@ -65,7 +65,7 @@ export function Education() {
           <SectionHeader
             label="Education"
             title="Academic Background"
-            subtitle="Technology, language, and ongoing studies in artificial intelligence"
+            subtitle="Technology, language, and ongoing graduate studies in artificial intelligence and project management"
           />
           <div className="grid gap-6 sm:grid-cols-2">
             {EDU.map((e) => (
