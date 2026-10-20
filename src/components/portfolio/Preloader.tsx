@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { brandingIntroPath, brandingIntroUrl, brandingIntroMp4Path, brandingIntroMp4Url, brandingLogoUrl } from "@/lib/branding-assets";
 
 export function Preloader() {
