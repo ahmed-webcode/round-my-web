@@ -5,16 +5,16 @@ export const profile = {
   location: "Addis Ababa, Ethiopia",
   summary:
     "Software Developer and Project Manager based in Addis Ababa, Ethiopia. Turns complex problems into elegant, scalable solutions and bridges engineering with project delivery. Trilingual collaboration in English, Arabic, and Amharic.",
-  website: "https://ahmedms.lovable.app/",
+  website: "https://ahmedms.dev/",
   contact: {
-    email: "ahmedmuh543@gmail.com",
+    email: "contact@ahmedms.dev",
     phone: "+251 920 928 989",
     telegram: "https://telegram.me/Amsa899",
     linkedin: "https://www.linkedin.com/in/ahmed-muhammed-seid-983138309",
     github: "https://github.com/ahmed-webcode",
   },
   availability:
-    "Open to opportunities — freelance, contract, or full-time. Reach out by email (ahmedmuh543@gmail.com) or Telegram (@Amsa899).",
+    "Open to opportunities — freelance, contract, or full-time. Reach out by email (contact@ahmedms.dev) or Telegram (@Amsa899).",
   languages: ["English", "Arabic (العربية)", "Amharic (አማርኛ)"],
   skills: {
     "Programming languages": ["Python", "Java", "JavaScript", "PHP"],

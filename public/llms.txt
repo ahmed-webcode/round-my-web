@@ -1,7 +1,13 @@
-# Ahmed Muhammed Seid
+# Ahmed Muhammed Seid (AhmedMS)
 
-> Portfolio of Ahmed Muhammed Seid — Software Developer and Project Manager skilled in Python, Django, and DevOps, and fluent in English, Arabic, and Amharic.
+> Front End Developer & Software Engineer based in Addis Ababa, Ethiopia — React, Python, Django and DevOps, with project-management experience. Currently an Intern Frontend Developer at KIFIYA Financial Technologies and studying for a Master of Science in Artificial Intelligence and an MA in Project Management. Fluent in English, Arabic and Amharic. Website: https://ahmedms.dev · Email: contact@ahmedms.dev
 
 ## Pages
 
-- [Home](/): Overview, experience, projects, skills, education, and contact details.
+- [Home](https://ahmedms.dev/): Overview, quick facts and contact.
+- [About](https://ahmedms.dev/about): Background and approach.
+- [Experience](https://ahmedms.dev/experience): KIFIYA internship and AAU Fleet Management System project lead.
+- [Projects](https://ahmedms.dev/projects): Emarosh Residence, AURUM, Kheyrukum and more.
+- [Skills](https://ahmedms.dev/skills): Front-end, back-end, DevOps and project management.
+- [Education](https://ahmedms.dev/education): Degrees, languages and certificates.
+- [Contact](https://ahmedms.dev/contact): Email contact@ahmedms.dev, Telegram @Amsa899.

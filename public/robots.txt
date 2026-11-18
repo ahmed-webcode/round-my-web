@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ahmedms.lovable.app/sitemap.xml
+Sitemap: https://ahmedms.dev/sitemap.xml

@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "Ahmed Muhammed Seid, AhmedMS, Ahmed developer Ethiopia, front end developer Ethiopia, front end developer Addis Ababa, React developer Addis Ababa, software developer Addis Ababa, software developer Ethiopia, Python developer Ethiopia, Django developer, React developer Ethiopia, DevOps Ethiopia, Ethiopian software engineer, Ethiopian project manager, Arabic speaking developer, freelance developer Ethiopia, hire developer Addis Ababa, Kheyrukum",
+          "Ahmed Muhammed Seid, AhmedMS, Ahmed developer Ethiopia, front end developer Ethiopia, front end developer Addis Ababa, React developer Addis Ababa, software developer Addis Ababa, software developer Ethiopia, Python developer Ethiopia, Django developer, React developer Ethiopia, DevOps Ethiopia, Ethiopian software engineer, Ethiopian project manager, Arabic speaking developer, freelance developer Ethiopia, hire developer Addis Ababa, best developer in Ethiopia, best developer in Addis Ababa, best front end developer Ethiopia, best web developer Addis Ababa, web developer Ethiopia, website developer Addis Ababa, React developer for hire Ethiopia, AI developer Ethiopia, ahmedms.dev, Kheyrukum",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "geo.region", content: "ET-AA" },
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
           "Front End Developer & Software Engineer in Addis Ababa, Ethiopia. Python, Django, React, DevOps. Trilingual (English, Arabic, Amharic).",
       },
       { property: "og:locale", content: "en_US" },
-      { property: "og:url", content: "https://ahmedms.lovable.app/" },
+      { property: "og:url", content: "https://ahmedms.dev/" },
       {
         name: "twitter:title",
         content: "Ahmed Muhammed Seid — Front End Developer & Software Engineer in Addis Ababa",
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "canonical", href: "https://ahmedms.lovable.app/" },
+      { rel: "canonical", href: "https://ahmedms.dev/" },
       {
         rel: "preload",
         as: "image",
@@ -68,9 +68,9 @@ export const Route = createFileRoute("/")({
           jobTitle: "Front End Developer & Software Engineer",
           description:
             "Front End Developer and Software Engineer based in Addis Ababa, Ethiopia. Specializes in Python, Django, React, and DevOps. Trilingual in English, Arabic, and Amharic.",
-          url: "https://ahmedms.lovable.app/",
-          image: `https://ahmedms.lovable.app${ahmedAsset.url}`,
-          email: "mailto:ahmedmuh543@gmail.com",
+          url: "https://ahmedms.dev/",
+          image: `https://ahmedms.dev${ahmedAsset.url}`,
+          email: "mailto:contact@ahmedms.dev",
           telephone: "+251920928989",
           address: {
             "@type": "PostalAddress",

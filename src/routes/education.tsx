@@ -15,11 +15,11 @@ export const Route = createFileRoute("/education")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "https://ahmedms.lovable.app/education" },
+      { property: "og:url", content: "https://ahmedms.dev/education" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "https://ahmedms.lovable.app/education" }],
+    links: [{ rel: "canonical", href: "https://ahmedms.dev/education" }],
   }),
   component: EducationPage,
 });

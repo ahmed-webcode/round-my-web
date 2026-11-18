@@ -34,11 +34,11 @@ export function Contact() {
 
         <div className="mb-10 flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
           <a
-            href="mailto:ahmedmuh543@gmail.com"
+            href="mailto:contact@ahmedms.dev"
             className="group inline-flex items-center justify-center gap-3 rounded-xl border border-border bg-card px-6 py-4 font-medium transition-all hover:-translate-y-1 hover:border-transparent hover:bg-gradient-primary hover:text-primary-foreground"
           >
             <Mail size={20} className="text-primary group-hover:text-white" />
-            ahmedmuh543@gmail.com
+            contact@ahmedms.dev
           </a>
           <a
             href="tel:+251920928989"
