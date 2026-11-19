@@ -3,3 +3,6 @@
 - [x] Add ongoing AI master's studies to Education.
 - [x] Add current KIFIYA frontend internship starting September 2026 to Experience.
 - [x] Update AhmedBot and public profile with the new career details and verify them.
+- [ ] Add English, Arabic, and Amharic navbar language switching with persistence and Arabic RTL.
+- [ ] Translate every page, shared interface, project description, and chatbot control professionally.
+- [ ] Verify all routes, mobile layouts, language persistence, and localized chatbot replies.
