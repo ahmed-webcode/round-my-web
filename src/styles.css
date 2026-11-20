@@ -8,6 +8,12 @@
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
 @import "@fontsource/jetbrains-mono/600.css";
+@import "@fontsource/noto-sans-arabic/400.css";
+@import "@fontsource/noto-sans-arabic/600.css";
+@import "@fontsource/noto-sans-arabic/700.css";
+@import "@fontsource/noto-sans-ethiopic/400.css";
+@import "@fontsource/noto-sans-ethiopic/600.css";
+@import "@fontsource/noto-sans-ethiopic/700.css";
 @source "../src";
 @import "tw-animate-css";
 
@@ -50,8 +56,8 @@
   --color-project-fallback: var(--project-fallback);
   --color-intro-background: var(--intro-background);
 
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Space Grotesk", "Noto Sans Arabic", "Noto Sans Ethiopic", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Noto Sans Arabic", "Noto Sans Ethiopic", ui-monospace, monospace;
 }
 
 :root {
@@ -337,6 +343,14 @@ html.projects-scroll body {
   .page-transition {
     animation: none;
   }
+}
+
+html[lang="ar"] .font-mono-x,
+html[lang="am"] .font-mono-x {
+  letter-spacing: 0;
+}
+html[lang="ar"] body {
+  line-height: 1.8;
 }
 
 .nav-link.nav-active .nav-underline {
